@@ -47,6 +47,8 @@ IDENTIDAD.md             Propuesta de marca y primeros pasos
 
 El documento proporcionado `DESIGN.md` se conserva como referencia; sus reglas visuales se aplican únicamente en la rama alternativa.
 
+Consultar [COMPARACION.md](COMPARACION.md) para ver las diferencias, los enlaces de ambas versiones y cómo cambiar de rama.
+
 ## Personalización pendiente
 
 Agregar el canal de contacto real cuando esté elegido. No se inventaron correos, redes, clientes ni proyectos. Sustituir o ampliar el laboratorio con casos reales al contar con material. Consultar `IDENTIDAD.md` para la propuesta de marca y primeros pasos.
