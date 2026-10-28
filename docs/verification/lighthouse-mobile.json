@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-28",
+  "url": "http://127.0.0.1:4320/",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+  "formFactor": "mobile",
+  "scores": {
+    "performance": 99,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100
+  },
+  "metrics": {
+    "first-contentful-paint": {
+      "value": 865.706,
+      "display": "0.9 s"
+    },
+    "largest-contentful-paint": {
+      "value": 2261.118,
+      "display": "2.3 s"
+    },
+    "total-blocking-time": {
+      "value": 2,
+      "display": "0 ms"
+    },
+    "cumulative-layout-shift": {
+      "value": 0.001860291011257568,
+      "display": "0.002"
+    },
+    "speed-index": {
+      "value": 1820.0323054013234,
+      "display": "1.8 s"
+    }
+  },
+  "scope": "Local production-equivalent preview. Not field data or a real phone."
+}

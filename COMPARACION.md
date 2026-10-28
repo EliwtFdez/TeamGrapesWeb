@@ -1,5 +1,7 @@
 # Dos versiones de Team Grapes
 
+Esta comparación documenta la migración inicial. `main` incorpora ahora las mejoras de `PLAN.md`; la rama `codex/design-md` conserva la variante de diseño. El estado actual y las pruebas están en [docs/IMPLEMENTACION.md](docs/IMPLEMENTACION.md).
+
 Ambas usan React 19, TypeScript, Vite y Motion para React. Conservan el contenido del estudio, Emmanuel y Eliw, Grape Run y el preparador de propuestas sin envío a servidores.
 
 | | `main` | `codex/design-md` |

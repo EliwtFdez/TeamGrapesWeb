@@ -36,6 +36,7 @@ export class AnalyticsClient {
     if (!this.initialized) {
       this.port.queue('consent', 'default', denied);
       this.port.queue('set', 'ads_data_redaction', true);
+      this.port.queue('set', { page_location: this.origin + safePagePath(this.port.pathname()), page_referrer: '', page_title: 'Team Grapes' });
       this.port.queue('consent', 'update', { ...denied, analytics_storage: 'granted' });
       this.port.queue('js', new Date());
       this.port.queue('config', this.id, { send_page_view: false, allow_google_signals: false, allow_ad_personalization_signals: false, debug_mode: this.debug, cookie_expires: 60 * 60 * 24 * 180, cookie_update: false });
