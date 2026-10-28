@@ -1,562 +1,714 @@
 ---
 version: alpha
-name: Apple-design-analysis
-description: A photography-first interface that turns marketing into a museum gallery. Edge-to-edge product tiles alternate light and dark canvases, framed by SF Pro Display headlines with negative letter-spacing and a single Action Blue (#0066cc) interactive color. UI chrome recedes so the product can speak — no decorative gradients, no shadows on chrome, only the one signature drop-shadow under product imagery resting on a surface.
+name: Team-Grapes-design-system
+description: Sistema de diseño base para las plataformas de Team Grapes. Un tema oscuro "carbón" con acentos lima y violeta, tipografía Space Grotesk con tracking negativo para titulares, DM Sans para lectura y detalles de terminal en monoespaciada. Estética de estudio indie de videojuegos — pixel art, etiquetas tipo código, bordes finos y sombras duras sin desenfoque — con interfaz sobria, accesible y de baja densidad.
 
 colors:
-  primary: "#0066cc"
-  primary-focus: "#0071e3"
-  primary-on-dark: "#2997ff"
-  ink: "#1d1d1f"
-  body: "#1d1d1f"
-  body-on-dark: "#ffffff"
-  body-muted: "#cccccc"
-  ink-muted-80: "#333333"
-  ink-muted-48: "#7a7a7a"
-  divider-soft: "#f0f0f0"
-  hairline: "#e0e0e0"
-  canvas: "#ffffff"
-  canvas-parchment: "#f5f5f7"
-  surface-pearl: "#fafafc"
-  surface-tile-1: "#272729"
-  surface-tile-2: "#2a2a2c"
-  surface-tile-3: "#252527"
-  surface-black: "#000000"
-  surface-chip-translucent: "#d2d2d7"
-  on-primary: "#ffffff"
-  on-dark: "#ffffff"
+  bg: "#11120f"
+  panel: "#181a16"
+  surface-raised: "#1b1d18"
+  surface-ticker: "#191c14"
+  surface-toolbar: "#272a20"
+  surface-footer-bar: "#24271e"
+  surface-menu: "#24271e"
+  surface-consent: "#23291d"
+  surface-input: "#11140e"
+  surface-art: "#22271b"
+  surface-stage: "#302547"
+  surface-shadow: "#080a07"
+  ink: "#f1f0e8"
+  ink-soft: "#e0e2d5"
+  ink-legal: "#d0d3c7"
+  ink-nav: "#c4c5bb"
+  ink-eyebrow: "#ced1bf"
+  muted: "#a4a79b"
+  muted-dim: "#8e9581"
+  line: "#35382e"
+  line-strong: "#545744"
+  line-control: "#5b624e"
+  line-input: "#4b5240"
+  line-nav-cta: "#656c55"
+  line-dialog: "#626b52"
+  line-consent: "#6c775a"
+  lime: "#c4f564"
+  lime-hover: "#d5ff83"
+  lime-wash: "#c4f56415"
+  purple: "#b69aee"
+  purple-ink: "#222019"
+  sand: "#e5dfc5"
+  on-lime: "#11120f"
+  on-lime-dark: "#1a2111"
+  button-dark: "#192010"
+  on-button-dark: "#f2f5e8"
+  backdrop: "#070907d9"
 
 typography:
   hero-display:
-    fontFamily: "SF Pro Display, system-ui, -apple-system, sans-serif"
-    fontSize: 56px
-    fontWeight: 600
-    lineHeight: 1.07
-    letterSpacing: -0.28px
+    fontFamily: "Space Grotesk Variable, Arial, sans-serif"
+    fontSize: clamp(65px, 7.6vw, 104px)
+    fontWeight: 500
+    lineHeight: 1.02
+    letterSpacing: -6px
+  display-xl:
+    fontFamily: "Space Grotesk Variable, Arial, sans-serif"
+    fontSize: clamp(48px, 5.7vw, 76px)
+    fontWeight: 500
+    lineHeight: 1.04
+    letterSpacing: -3px
   display-lg:
-    fontFamily: "SF Pro Display, system-ui, -apple-system, sans-serif"
-    fontSize: 40px
-    fontWeight: 600
-    lineHeight: 1.1
-    letterSpacing: 0
+    fontFamily: "Space Grotesk Variable, Arial, sans-serif"
+    fontSize: 43px
+    fontWeight: 500
+    lineHeight: 1.12
+    letterSpacing: -2px
   display-md:
-    fontFamily: "SF Pro Text, system-ui, -apple-system, sans-serif"
-    fontSize: 34px
-    fontWeight: 600
-    lineHeight: 1.47
-    letterSpacing: -0.374px
-  lead:
-    fontFamily: "SF Pro Display, system-ui, -apple-system, sans-serif"
-    fontSize: 28px
-    fontWeight: 400
-    lineHeight: 1.14
-    letterSpacing: 0.196px
-  lead-airy:
-    fontFamily: "SF Pro Text, system-ui, -apple-system, sans-serif"
-    fontSize: 24px
-    fontWeight: 300
-    lineHeight: 1.5
-    letterSpacing: 0
-  tagline:
-    fontFamily: "SF Pro Display, system-ui, -apple-system, sans-serif"
-    fontSize: 21px
-    fontWeight: 600
-    lineHeight: 1.19
-    letterSpacing: 0.231px
-  body-strong:
-    fontFamily: "SF Pro Text, system-ui, -apple-system, sans-serif"
-    fontSize: 17px
-    fontWeight: 600
-    lineHeight: 1.24
-    letterSpacing: -0.374px
-  body:
-    fontFamily: "SF Pro Text, system-ui, -apple-system, sans-serif"
-    fontSize: 17px
-    fontWeight: 400
-    lineHeight: 1.47
-    letterSpacing: -0.374px
-  dense-link:
-    fontFamily: "SF Pro Text, system-ui, -apple-system, sans-serif"
-    fontSize: 17px
-    fontWeight: 400
-    lineHeight: 2.41
-    letterSpacing: 0
-  caption:
-    fontFamily: "SF Pro Text, system-ui, -apple-system, sans-serif"
-    fontSize: 14px
-    fontWeight: 400
-    lineHeight: 1.43
-    letterSpacing: -0.224px
-  caption-strong:
-    fontFamily: "SF Pro Text, system-ui, -apple-system, sans-serif"
-    fontSize: 14px
-    fontWeight: 600
-    lineHeight: 1.29
-    letterSpacing: -0.224px
-  button-large:
-    fontFamily: "SF Pro Text, system-ui, -apple-system, sans-serif"
-    fontSize: 18px
-    fontWeight: 300
-    lineHeight: 1.0
-    letterSpacing: 0
-  button-utility:
-    fontFamily: "SF Pro Text, system-ui, -apple-system, sans-serif"
-    fontSize: 14px
-    fontWeight: 400
-    lineHeight: 1.29
-    letterSpacing: -0.224px
-  fine-print:
-    fontFamily: "SF Pro Text, system-ui, -apple-system, sans-serif"
-    fontSize: 12px
-    fontWeight: 400
-    lineHeight: 1.0
-    letterSpacing: -0.12px
-  micro-legal:
-    fontFamily: "SF Pro Text, system-ui, -apple-system, sans-serif"
-    fontSize: 10px
-    fontWeight: 400
+    fontFamily: "Space Grotesk Variable, Arial, sans-serif"
+    fontSize: 35px
+    fontWeight: 500
+    lineHeight: 1.12
+    letterSpacing: -1.7px
+  heading:
+    fontFamily: "Space Grotesk Variable, Arial, sans-serif"
+    fontSize: 23px
+    fontWeight: 500
     lineHeight: 1.3
-    letterSpacing: -0.08px
+    letterSpacing: -0.6px
+  heading-sm:
+    fontFamily: "Space Grotesk Variable, Arial, sans-serif"
+    fontSize: 16px
+    fontWeight: 500
+    lineHeight: 1.4
+    letterSpacing: 0
+  brand:
+    fontFamily: "Space Grotesk Variable, Arial, sans-serif"
+    fontSize: 21px
+    fontWeight: 700
+    lineHeight: 1.25
+    letterSpacing: -0.8px
+  serif-accent:
+    fontFamily: "Georgia, Times New Roman, serif"
+    fontSize: inherit
+    fontWeight: 400
+    fontStyle: italic
+    lineHeight: inherit
+    letterSpacing: -5px
+  quote:
+    fontFamily: "Georgia, serif"
+    fontSize: 24px
+    fontWeight: 400
+    fontStyle: italic
+    lineHeight: 1.25
+    letterSpacing: 0
+  body:
+    fontFamily: "DM Sans Variable, Arial, sans-serif"
+    fontSize: 16px
+    fontWeight: 400
+    lineHeight: 1.6
+    letterSpacing: 0
+  body-legal:
+    fontFamily: "DM Sans Variable, Arial, sans-serif"
+    fontSize: 16px
+    fontWeight: 400
+    lineHeight: 1.8
+    letterSpacing: 0
+  body-small:
+    fontFamily: "DM Sans Variable, Arial, sans-serif"
+    fontSize: 13px
+    fontWeight: 400
+    lineHeight: 1.8
+    letterSpacing: 0
+  lead:
+    fontFamily: "DM Sans Variable, Arial, sans-serif"
+    fontSize: 15px
+    fontWeight: 400
+    lineHeight: 1.8
+    letterSpacing: 0
   nav-link:
-    fontFamily: "SF Pro Text, system-ui, -apple-system, sans-serif"
+    fontFamily: "DM Sans Variable, Arial, sans-serif"
+    fontSize: 13px
+    fontWeight: 400
+    lineHeight: 1.6
+    letterSpacing: 0
+  button:
+    fontFamily: "DM Sans Variable, Arial, sans-serif"
+    fontSize: 13px
+    fontWeight: 650
+    lineHeight: 1.4
+    letterSpacing: 0
+  text-link:
+    fontFamily: "DM Sans Variable, Arial, sans-serif"
     fontSize: 12px
     fontWeight: 400
-    lineHeight: 1.0
-    letterSpacing: -0.12px
+    lineHeight: 1.6
+    letterSpacing: 0
+  eyebrow:
+    fontFamily: "Courier New, monospace"
+    fontSize: 11px
+    fontWeight: 400
+    lineHeight: 1.6
+    letterSpacing: 1px
+  mono-label:
+    fontFamily: "Courier New, monospace"
+    fontSize: 11px
+    fontWeight: 400
+    lineHeight: 1.6
+    letterSpacing: 0.3px
+  mono-ticker:
+    fontFamily: "Courier New, monospace"
+    fontSize: 11px
+    fontWeight: 400
+    lineHeight: 1.6
+    letterSpacing: 1.5px
 
 rounded:
   none: 0px
-  xs: 5px
-  sm: 8px
-  md: 11px
-  lg: 18px
+  xs: 4px
+  sm: 5px
+  md: 6px
+  lg: 9px
   pill: 9999px
-  full: 9999px
+  full: 50%
 
 spacing:
   xxs: 4px
   xs: 8px
   sm: 12px
-  md: 17px
+  md: 16px
   lg: 24px
   xl: 32px
   xxl: 48px
-  section: 80px
+  section: 88px
+  gutter-mobile: 23px
+  gutter-tablet: 36px
+  gutter-desktop: 56px
 
 components:
-  button-primary:
-    backgroundColor: "{colors.primary}"
-    textColor: "{colors.on-primary}"
-    typography: "{typography.body}"
-    rounded: "{rounded.pill}"
-    padding: 11px 22px
-  button-primary-focus:
-    backgroundColor: "{colors.primary}"
-    textColor: "{colors.on-primary}"
-    rounded: "{rounded.pill}"
-  button-primary-active:
-    backgroundColor: "{colors.primary}"
-    textColor: "{colors.on-primary}"
-    rounded: "{rounded.pill}"
-  button-secondary-pill:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.primary}"
-    typography: "{typography.body}"
-    rounded: "{rounded.pill}"
-    padding: 11px 22px
-  button-dark-utility:
-    backgroundColor: "{colors.ink}"
-    textColor: "{colors.on-dark}"
-    typography: "{typography.button-utility}"
-    rounded: "{rounded.sm}"
-    padding: 8px 15px
-  button-pearl-capsule:
-    backgroundColor: "{colors.surface-pearl}"
-    textColor: "{colors.ink-muted-80}"
-    typography: "{typography.caption}"
-    rounded: "{rounded.md}"
-    padding: 8px 14px
-  button-store-hero:
-    backgroundColor: "{colors.primary}"
-    textColor: "{colors.on-primary}"
-    typography: "{typography.button-large}"
-    rounded: "{rounded.pill}"
-    padding: 14px 28px
-  button-icon-circular:
-    backgroundColor: "{colors.surface-chip-translucent}"
+  header:
+    backgroundColor: transparent
+    textColor: "{colors.ink-nav}"
+    typography: "{typography.nav-link}"
+    height: 112px
+  brand:
     textColor: "{colors.ink}"
-    rounded: "{rounded.full}"
-    size: 44px
+    typography: "{typography.brand}"
+  nav-cta:
+    backgroundColor: "{colors.lime}"
+    textColor: "{colors.on-lime}"
+    typography: "{typography.button}"
+    rounded: "{rounded.sm}"
+    padding: 11px 17px
+    height: 44px
+  button-lime:
+    backgroundColor: "{colors.lime}"
+    textColor: "{colors.on-lime}"
+    typography: "{typography.button}"
+    rounded: "{rounded.xs}"
+    padding: 14px 21px
+    height: 48px
+  button-lime-hover:
+    backgroundColor: "{colors.lime-hover}"
+    textColor: "{colors.on-lime}"
+    rounded: "{rounded.xs}"
+  button-dark:
+    backgroundColor: "{colors.button-dark}"
+    textColor: "{colors.on-button-dark}"
+    typography: "{typography.button}"
+    rounded: "{rounded.xs}"
+    padding: 14px 21px
+    height: 48px
+  button-small:
+    backgroundColor: transparent
+    textColor: "{colors.ink}"
+    typography: "{typography.text-link}"
+    rounded: "{rounded.xs}"
+    padding: 8px 12px
+    height: 44px
+  button-consent:
+    backgroundColor: transparent
+    textColor: "{colors.lime}"
+    typography: "{typography.button}"
+    rounded: "{rounded.xs}"
+    padding: 12px 16px
+    height: 44px
   text-link:
     backgroundColor: transparent
-    textColor: "{colors.primary}"
-    typography: "{typography.body}"
-  text-link-on-dark:
+    textColor: "{colors.ink}"
+    typography: "{typography.text-link}"
+    height: 44px
+  text-link-hover:
     backgroundColor: transparent
-    textColor: "{colors.primary-on-dark}"
+    textColor: "{colors.lime}"
+  eyebrow:
+    textColor: "{colors.lime}"
+    typography: "{typography.eyebrow}"
+  status-dot:
+    backgroundColor: "{colors.lime}"
+    rounded: "{rounded.full}"
+    size: 6px
+  ticker:
+    backgroundColor: "{colors.surface-ticker}"
+    textColor: "{colors.ink-nav}"
+    typography: "{typography.mono-ticker}"
+    height: 61px
+  section-panel:
+    backgroundColor: "{colors.surface-raised}"
+    textColor: "{colors.ink}"
     typography: "{typography.body}"
-  global-nav:
-    backgroundColor: "{colors.surface-black}"
-    textColor: "{colors.on-dark}"
+    padding: 88px 56px
+  discipline-grid:
+    backgroundColor: transparent
+    textColor: "{colors.ink}"
+    rounded: "{rounded.sm}"
+    padding: 28px
+  art-panel:
+    backgroundColor: "{colors.surface-art}"
+    textColor: "{colors.muted}"
+    typography: "{typography.mono-label}"
+    rounded: "{rounded.xs}"
+    padding: 23px
+  game-shell:
+    backgroundColor: "{colors.surface-footer-bar}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.md}"
+  game-toolbar:
+    backgroundColor: "{colors.surface-toolbar}"
+    textColor: "{colors.ink-eyebrow}"
+    typography: "{typography.mono-label}"
+    padding: 14px 20px
+  game-stage:
+    backgroundColor: "{colors.surface-stage}"
+    textColor: "{colors.ink}"
+  sticker-label-code:
+    backgroundColor: "{colors.panel}"
+    textColor: "{colors.lime}"
+    typography: "{typography.mono-label}"
+    padding: 7px 12px
+  sticker-label-play:
+    backgroundColor: "{colors.lime}"
+    textColor: "{colors.on-lime}"
+    typography: "{typography.mono-label}"
+    padding: 7px 12px
+  mini-window:
+    backgroundColor: "{colors.purple}"
+    textColor: "{colors.purple-ink}"
+    rounded: "{rounded.sm}"
+    width: 208px
+  contact-section:
+    backgroundColor: "{colors.lime}"
+    textColor: "{colors.on-lime-dark}"
+    typography: "{typography.display-xl}"
+    rounded: "{rounded.md}"
+    padding: 33px 56px
+  process-step:
+    backgroundColor: transparent
+    textColor: "{colors.ink}"
+    typography: "{typography.heading-sm}"
+    padding: 17px 0
+  mobile-menu:
+    backgroundColor: "{colors.surface-menu}"
+    textColor: "{colors.ink-nav}"
     typography: "{typography.nav-link}"
-    height: 44px
-  sub-nav-frosted:
-    backgroundColor: "{colors.canvas-parchment}"
+    rounded: "{rounded.sm}"
+    padding: 20px
+  dialog:
+    backgroundColor: "{colors.panel}"
     textColor: "{colors.ink}"
-    typography: "{typography.tagline}"
-    height: 52px
-  product-tile-light:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.ink}"
-    typography: "{typography.display-lg}"
-    rounded: "{rounded.none}"
-    padding: 80px
-  product-tile-parchment:
-    backgroundColor: "{colors.canvas-parchment}"
-    textColor: "{colors.ink}"
-    typography: "{typography.display-lg}"
-    rounded: "{rounded.none}"
-    padding: 80px
-  product-tile-dark:
-    backgroundColor: "{colors.surface-tile-1}"
-    textColor: "{colors.on-dark}"
-    typography: "{typography.display-lg}"
-    rounded: "{rounded.none}"
-    padding: 80px
-  product-tile-dark-2:
-    backgroundColor: "{colors.surface-tile-2}"
-    textColor: "{colors.on-dark}"
-    rounded: "{rounded.none}"
-  product-tile-dark-3:
-    backgroundColor: "{colors.surface-tile-3}"
-    textColor: "{colors.on-dark}"
-    rounded: "{rounded.none}"
-  store-utility-card:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.ink}"
-    typography: "{typography.body-strong}"
+    typography: "{typography.body-small}"
     rounded: "{rounded.lg}"
-    padding: 24px
-  configurator-option-chip:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.ink}"
-    typography: "{typography.caption}"
-    rounded: "{rounded.pill}"
-    padding: 12px 16px
-  configurator-option-chip-selected:
-    backgroundColor: "{colors.canvas}"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.pill}"
-  search-input:
-    backgroundColor: "{colors.canvas}"
+    padding: 29px
+  input:
+    backgroundColor: "{colors.surface-input}"
     textColor: "{colors.ink}"
     typography: "{typography.body}"
-    rounded: "{rounded.pill}"
-    padding: 12px 20px
+    rounded: "{rounded.xs}"
+    padding: 12px
     height: 44px
-  floating-sticky-bar:
-    backgroundColor: "{colors.canvas-parchment}"
+  consent-banner:
+    backgroundColor: "{colors.surface-consent}"
     textColor: "{colors.ink}"
-    typography: "{typography.body}"
-    height: 64px
-    padding: 12px 32px
-  environment-quote-card:
-    backgroundColor: "{colors.surface-tile-1}"
-    textColor: "{colors.on-dark}"
-    typography: "{typography.display-lg}"
-    rounded: "{rounded.none}"
-    padding: 80px
+    typography: "{typography.body-small}"
+    rounded: "{rounded.md}"
+    padding: 24px
+  legal-page:
+    backgroundColor: "{colors.bg}"
+    textColor: "{colors.ink-legal}"
+    typography: "{typography.body-legal}"
+    padding: 40px 24px 80px
+  legal-draft-note:
+    backgroundColor: transparent
+    textColor: "{colors.ink-soft}"
+    typography: "{typography.body-small}"
+    rounded: "{rounded.md}"
+    padding: 18px
   footer:
-    backgroundColor: "{colors.canvas-parchment}"
-    textColor: "{colors.ink-muted-80}"
-    typography: "{typography.fine-print}"
-    padding: 64px
+    backgroundColor: transparent
+    textColor: "{colors.muted}"
+    typography: "{typography.mono-label}"
+    padding: 32px 56px
 ---
 
 ## Overview
 
-Apple's web presence is a masterclass in **reverent product photography framed by near-invisible UI**. Every page is a stack of edge-to-edge product "tiles" — alternating light and dark canvases, each centered on a hero headline, a one-line tagline, two tiny blue pill CTAs, and an impossibly crisp product render. Nothing competes with the product. Typography is confident but quiet; color is either pure white, an off-white parchment, or a near-black tile; interactive elements are a single, quiet blue.
+Team Grapes es un estudio independiente que hace videojuegos, software y prototipos de mecatrónica. Su lenguaje visual refleja esa mezcla: **un terminal oscuro con alma de arcade**. El fondo es carbón verdoso, la tinta es un crema cálido, y dos acentos — **lima** para acción y **violeta** para foco y juego — dan toda la energía de la marca. Las uvas pixeladas del logo son el único ornamento obligatorio; todo lo demás es estructura sobria.
 
-Density is unusually low even by contemporary SaaS standards. Each tile occupies roughly one viewport, and there is no decorative chrome — no borders, no gradients, no decorative frames, no shadows on headlines. Elevation appears only when a product image rests on a surface (a single soft `rgba(0, 0, 0, 0.22) 3px 5px 30px` drop for visual weight). The result is a catalog that feels more like a museum gallery: the wall disappears and the artifact takes over.
+Este documento es el **template** para cualquier plataforma futura de Team Grapes (landing de un juego, herramienta web, página de proyecto, panel interno). Una plataforma nueva debe sentirse inmediatamente parte de la misma familia: mismos colores, misma tipografía con tracking apretado, mismos detalles de terminal y las mismas reglas de accesibilidad.
 
-Store and shop surfaces retain the same chassis but switch modes. The product configurator (iPhone 17 Pro, accessories grid) introduces a tight grid of white utility cards at `{rounded.lg}` (18px) radius with a thin border, paired with a persistent thin sub-nav strip. The environment page leans darker and more editorial. Across all five surfaces the typographic system, spacing rhythm, and the single blue accent are consistent — this is one design language expressed at different volumes.
+La personalidad de marca es *cercana, curiosa, ingeniosa y clara* (ver [IDENTIDAD.md](IDENTIDAD.md)). El diseño la traduce así: titulares grandes y juguetones con un acento en serif cursiva, texto de apoyo discreto, etiquetas en monoespaciada que recuerdan a una consola, y pequeños elementos de juego (estrellas, pegatinas, ventanas pixel) que aparecen con moderación.
 
 **Key Characteristics:**
-- Photography-first presentation; UI recedes so the product can speak.
-- Alternating full-bleed tile sections: white/parchment ↔ near-black, with the color change itself acting as the section divider.
-- Single blue accent (`{colors.primary}` — #0066cc) carries every interactive element. No second brand color exists.
-- Two button grammars: tiny blue pill CTAs (`{rounded.pill}`) and compact utility rects (`{rounded.sm}`).
-- SF Pro Display + SF Pro Text — negative letter-spacing at display sizes for the signature "Apple tight" headline feel.
-- Whisper-soft elevation used only when a product image needs to breathe — exactly one drop-shadow in the entire system.
-- Tight two-row nav: slim `{component.global-nav}` + product-specific `{component.sub-nav-frosted}` with persistent right-aligned primary CTA.
-- Section rhythm across multiple pages: light hero → dark product tile → light utility tile → dark tile → parchment footer — a predictable pulse.
+- Tema oscuro único: carbón `{colors.bg}` con paneles ligeramente más claros; el color lo ponen los acentos, no las superficies.
+- Dos acentos con roles distintos: **lima** `{colors.lime}` = acción, énfasis y marca; **violeta** `{colors.purple}` = foco de teclado, decoración de juego y detalles secundarios.
+- Titulares en Space Grotesk peso 500 con tracking muy negativo (hasta -6px en héroe) y una palabra clave en Georgia cursiva color lima.
+- Detalles de terminal: etiquetas en Courier New con tracking positivo (`// código`, coordenadas, versiones, `● online`).
+- Bordes de 1px en tonos oliva (`{colors.line}`) en lugar de sombras suaves; la profundidad viene de superficies y de sombras duras sin desenfoque en elementos "pegatina".
+- Esquinas casi rectas (4–6px). Nada de pills grandes salvo el punto de estado.
+- Pixel art (`image-rendering: pixelated`) para uvas, avatares y 404.
+- Movimiento mínimo y siempre respetando `prefers-reduced-motion`.
+- Accesibilidad por defecto: objetivos táctiles de 44px, foco visible de 3px, enlace "saltar al contenido", tamaño de fuente mínimo de 11px.
 
 ## Colors
 
-> **Source pages analyzed:** homepage, environment, store, iPhone 17 Pro buy page, accessories index. The color system is identical across all five surfaces; only the surface-mode mix differs.
+> **Fuente de verdad en código:** [src/styles/original.css](src/styles/original.css) (variables `:root`) y [src/styles/site.css](src/styles/site.css). Los valores de este documento son los que están en producción hoy.
+
+### Variables CSS base (copiar tal cual en un proyecto nuevo)
+
+```css
+:root {
+  --bg: #11120f;
+  --panel: #181a16;
+  --ink: #f1f0e8;
+  --muted: #a4a79b;
+  --line: #35382e;
+  --lime: #c4f564;
+  --purple: #b69aee;
+  --mono: 'Courier New', monospace;
+  --sans: 'DM Sans Variable', Arial, sans-serif;
+  --display: 'Space Grotesk Variable', Arial, sans-serif;
+}
+```
 
 ### Brand & Accent
-- **Action Blue** (`{colors.primary}` — #0066cc): The single brand-level interactive color. All text links, all blue pill CTAs ("Learn more", "Buy"), and the focus ring root. This is Apple's quiet but universal "click me" signal. Press state shifts to a slightly darker variant via the active scale transform rather than a hex change.
-- **Focus Blue** (`{colors.primary-focus}` — #0071e3): A marginally brighter sibling of Action Blue, reserved for the keyboard focus ring on buttons (`outline: 2px solid`).
-- **Sky Link Blue** (`{colors.primary-on-dark}` — #2997ff): A brighter blue used on dark surfaces for in-copy links and inline callouts, where Action Blue would disappear against the tile background.
+- **Lime** (`{colors.lime}` — #c4f564): El color de marca y de acción. Botones primarios, enlaces en hover, eyebrows, marcadores de estado, íconos principales, la palabra serif del titular y la selección de texto (`::selection`). Es el único color que invita a hacer clic.
+- **Lime Hover** (`{colors.lime-hover}` — #d5ff83): Estado hover del botón lima.
+- **Lime Wash** (`{colors.lime-wash}` — #c4f56415): Relleno translúcido al pasar el cursor sobre botones secundarios (`button-small`).
+- **Purple** (`{colors.purple}` — #b69aee): Anillo de foco (`outline: 3px solid`), estrellas y chispas decorativas, ventana pixel, segundo ícono de las tarjetas. Nunca se usa para acciones primarias.
+- **Purple Ink** (`{colors.purple-ink}` — #222019): Texto sobre superficies violeta.
+- **Sand** (`{colors.sand}` — #e5dfc5): Tercer color de trazo en íconos (junto a lima y violeta) para rotar entre tarjetas.
 
 ### Surface
-- **Pure White** (`{colors.canvas}` — #ffffff): The dominant canvas. Content, utility cards, store tiles, configurator grids.
-- **Parchment** (`{colors.canvas-parchment}` — #f5f5f7): The signature Apple off-white. Used for alternating light tiles, footer region, and the default page canvas in store utility sections. Just different enough from white to create rhythm.
-- **Pearl Button** (`{colors.surface-pearl}` — #fafafc): A near-white used as the fill for secondary "ghost" buttons — lighter than the parchment canvas so the button still reads as a button against `{colors.canvas-parchment}`.
-- **Near-Black Tile 1** (`{colors.surface-tile-1}` — #272729): The primary dark-tile surface on the homepage product grid.
-- **Near-Black Tile 2** (`{colors.surface-tile-2}` — #2a2a2c): A micro-step lighter — used where a dark tile sits directly above or below Tile 1 to create the faintest separation.
-- **Near-Black Tile 3** (`{colors.surface-tile-3}` — #252527): A micro-step darker — used at the bottom of the stack and in embedded video/player frames.
-- **Pure Black** (`{colors.surface-black}` — #000000): Reserved for true void — video player backgrounds, edge-to-edge photographic overlays, the global nav bar background.
-- **Translucent Chip Gray** (`{colors.surface-chip-translucent}` — #d2d2d7): The base hex of the translucent gray chip used over photography for circular control buttons. In production, applied at ~64% alpha as `rgba(210, 210, 215, 0.64)`.
+- **Bg / Charcoal** (`{colors.bg}` — #11120f): Lienzo de toda la página. También es el color de texto sobre botones lima.
+- **Panel** (`{colors.panel}` — #181a16): Diálogos y etiquetas tipo código.
+- **Surface Raised** (`{colors.surface-raised}` — #1b1d18): Secciones destacadas (laboratorio/juego) con borde superior e inferior.
+- **Surface Ticker** (`{colors.surface-ticker}` — #191c14): Banda de cinta de texto entre secciones.
+- **Surface Toolbar / Footer Bar** (`{colors.surface-toolbar}` #272a20 · `{colors.surface-footer-bar}` #24271e): Barra superior e inferior del recuadro de juego y menú móvil.
+- **Surface Consent** (`{colors.surface-consent}` — #23291d): Banner de consentimiento flotante.
+- **Surface Input** (`{colors.surface-input}` — #11140e): Campos de formulario, más oscuros que el panel para que se lean como "hundidos".
+- **Surface Art** (`{colors.surface-art}` — #22271b): Ilustraciones con cuadrícula de fondo.
+- **Surface Stage** (`{colors.surface-stage}` — #302547): Fondo del lienzo del juego (violeta profundo); es el único fondo "saturado" fuera de lima.
+- **Surface Shadow** (`{colors.surface-shadow}` — #080a07): Color de las sombras duras de pegatinas y ventana.
+- **Lime Section** (`{colors.lime}` como fondo): La sección de contacto invierte la página: fondo lima, texto `{colors.on-lime-dark}` (#1a2111), botón `{colors.button-dark}`.
 
 ### Text
-- **Near-Black Ink** (`{colors.ink}` — #1d1d1f): The voice of every headline, every body paragraph, and the dark utility button's fill. Chosen instead of pure black to keep the page feeling photographic rather than printed.
-- **Body** (`{colors.body}` — #1d1d1f): Same hex as ink — Apple uses one near-black tone for all text on light surfaces.
-- **Body On Dark** (`{colors.body-on-dark}` — #ffffff): All text on dark tiles and on the global nav bar.
-- **Body Muted** (`{colors.body-muted}` — #cccccc): Secondary copy on dark tiles where pure white would be too loud.
-- **Ink Muted 80** (`{colors.ink-muted-80}` — #333333): Body text on the white Pearl Button surface — slightly softer than pure black.
-- **Ink Muted 48** (`{colors.ink-muted-48}` — #7a7a7a): Disabled button text and legal fine-print.
+- **Ink** (`{colors.ink}` — #f1f0e8): Titulares y texto principal. Crema cálido, no blanco puro.
+- **Ink Soft** (`{colors.ink-soft}` — #e0e2d5): Énfasis dentro de párrafos atenuados.
+- **Ink Legal** (`{colors.ink-legal}` — #d0d3c7): Cuerpo de páginas legales (lectura larga).
+- **Ink Nav** (`{colors.ink-nav}` — #c4c5bb): Enlaces de navegación y ticker.
+- **Ink Eyebrow** (`{colors.ink-eyebrow}` — #ced1bf): Eyebrow del héroe.
+- **Muted** (`{colors.muted}` — #a4a79b): Descripciones, notas, texto secundario, pie de página.
+- **Muted Dim** (`{colors.muted-dim}` — #8e9581): Coordenadas decorativas y metadatos mínimos.
 
 ### Hairlines & Borders
-- **Divider Soft** (`{colors.divider-soft}` — #f0f0f0): The "border" tone on secondary buttons — functions as a ring shadow rather than a hard line. In production, often applied as `rgba(0, 0, 0, 0.04)`.
-- **Hairline** (`{colors.hairline}` — #e0e0e0): The 1px hairline border on store utility cards and configurator chips.
+- **Line** (`{colors.line}` — #35382e): Borde estándar de 1px (rejillas, separadores de proceso, ticker, pie legal).
+- **Line Strong** (`{colors.line-strong}` — #545744): Marco del recuadro de juego.
+- **Line Control** (`{colors.line-control}` — #5b624e): Borde de botones pequeños.
+- **Line Input** (`{colors.line-input}` — #4b5240): Borde de campos de formulario.
+- **Line Nav CTA / Dialog / Consent** (#656c55 · #626b52 · #6c775a): Bordes más claros para elementos flotantes que deben despegarse del fondo.
 
-### Brand Gradient
-**No decorative gradients.** Atmospheric depth on product photography (the iPhone 17 Pro camera plate, the Apple Watch bands, AirPods reflections) is inherent to the imagery, not a CSS gradient overlay. The environment page's hero uses photographic atmosphere (mountain vista at dawn) but no gradient tokens are defined. Apple is the rare luxury-brand site with zero gradient-based design tokens.
+### Gradients
+**Sin gradientes decorativos.** Las únicas "texturas" son cuadrículas de líneas de 1px hechas con `linear-gradient` (24–32px) sobre ilustraciones, siempre a muy baja opacidad y con `mask-image` radial en el héroe. El color se aplica plano.
+
+### Contraste
+- Lima sobre `{colors.bg}` y `{colors.bg}` sobre lima cumplen AA con holgura; usarlos siempre en pareja.
+- `{colors.muted}` sobre `{colors.bg}` es el piso para texto secundario: no usar nada más oscuro para texto legible.
 
 ## Typography
 
 ### Font Family
-- **Display**: `SF Pro Display, system-ui, -apple-system, sans-serif` — Apple's proprietary display face, optimized for sizes ≥ 19px. Defines the voice of every headline.
-- **Body / UI**: `SF Pro Text, system-ui, -apple-system, sans-serif` — the text-optimized variant used for body copy, captions, buttons, and links below 20px.
-- **OpenType features**: `font-variant-numeric: numerator` is enabled on numeric links (pricing tables, spec sheets). Display sizes rely on tight tracking rather than contextual ligatures.
+- **Display**: `Space Grotesk Variable, Arial, sans-serif` — titulares, nombre de marca, números grandes. Paquete `@fontsource-variable/space-grotesk`.
+- **Body / UI**: `DM Sans Variable, Arial, sans-serif` — párrafos, navegación, botones, formularios. Paquete `@fontsource-variable/dm-sans`.
+- **Mono**: `'Courier New', monospace` — eyebrows, etiquetas, ticker, metadatos, coordenadas. Sin descarga de fuente.
+- **Serif accent**: `Georgia, 'Times New Roman', serif` en cursiva — una sola palabra por titular (clase `.serif`) y citas.
 
 ### Hierarchy
 
 | Token | Size | Weight | Line Height | Letter Spacing | Use |
 |---|---|---|---|---|---|
-| `{typography.hero-display}` | 56px | 600 | 1.07 | -0.28px | Hero headline; the signature "Apple tight" tracking |
-| `{typography.display-lg}` | 40px | 600 | 1.10 | 0 | Tile headlines atop every product tile |
-| `{typography.display-md}` | 34px | 600 | 1.47 | -0.374px | Section heads (SF Pro Text at display proportions) |
-| `{typography.lead}` | 28px | 400 | 1.14 | 0.196px | Product tile subcopy |
-| `{typography.lead-airy}` | 24px | 300 | 1.5 | 0 | Environment-page lead paragraphs (the rare weight 300) |
-| `{typography.tagline}` | 21px | 600 | 1.19 | 0.231px | Sub-tile tagline; sub-nav category name |
-| `{typography.body-strong}` | 17px | 600 | 1.24 | -0.374px | Inline strong emphasis |
-| `{typography.body}` | 17px | 400 | 1.47 | -0.374px | Default paragraph |
-| `{typography.dense-link}` | 17px | 400 | 2.41 | 0 | Footer / store utility link lists (relaxed leading) |
-| `{typography.caption}` | 14px | 400 | 1.43 | -0.224px | Secondary captions, button text |
-| `{typography.caption-strong}` | 14px | 600 | 1.29 | -0.224px | Emphasized captions |
-| `{typography.button-large}` | 18px | 300 | 1.0 | 0 | Store hero CTAs (the rare weight 300) |
-| `{typography.button-utility}` | 14px | 400 | 1.29 | -0.224px | Utility/nav button labels |
-| `{typography.fine-print}` | 12px | 400 | 1.0 | -0.12px | Fine-print, footer body |
-| `{typography.micro-legal}` | 10px | 400 | 1.3 | -0.08px | Micro legal disclaimers |
-| `{typography.nav-link}` | 12px | 400 | 1.0 | -0.12px | Global nav menu items |
+| `{typography.hero-display}` | clamp(65px, 7.6vw, 104px) | 500 | 1.02 | -6px | Titular del héroe (106px ≥1440px) |
+| `{typography.display-xl}` | clamp(48px, 5.7vw, 76px) | 500 | 1.04 | -3px | Titular de la sección de contacto |
+| `{typography.display-lg}` | 43px | 500 | 1.12 | -2px | `h2` de sección |
+| `{typography.display-md}` | 35–40px | 500 | 1.12 | -1.7px | `h2` en bloques secundarios, diálogos |
+| `{typography.heading}` | 23px | 500 | 1.3 | -0.6px | `h3` de tarjetas |
+| `{typography.heading-sm}` | 16px | 500 | 1.4 | 0 | Pasos de proceso |
+| `{typography.brand}` | 21px | 700 | 1.25 | -0.8px | Nombre de marca (único uso de peso 700) |
+| `{typography.quote}` | 24px | 400 italic | 1.25 | 0 | Citas en Georgia |
+| `{typography.body}` | 16px | 400 | 1.6 | 0 | Base del `body` |
+| `{typography.body-legal}` | 16px | 400 | 1.8 | 0 | Páginas legales |
+| `{typography.lead}` | 15px | 400 | 1.8 | 0 | Descripción del héroe |
+| `{typography.body-small}` | 13px | 400 | 1.8 | 0 | Descripciones de tarjeta, notas |
+| `{typography.nav-link}` | 13px | 400 | 1.6 | 0 | Navegación |
+| `{typography.button}` | 13px | 650 | 1.4 | 0 | Botones |
+| `{typography.text-link}` | 12px | 400 | 1.6 | 0 | Enlaces de texto secundarios |
+| `{typography.eyebrow}` | 11px | 400 | 1.6 | 1px | Etiquetas de sección en Courier |
+| `{typography.mono-ticker}` | 11px | 400 | 1.6 | 1.5px | Ticker |
 
 ### Principles
-
-- **Negative letter-spacing at display sizes.** Every headline at 17px and up carries a slight tracking tighten (`-0.12 → -0.374px`). This produces the iconic "Apple tight" headline cadence. Never used at 12px or below.
-- **Body copy at 17px, not 16px.** Apple breaks the SaaS convention and runs paragraph text at 17px. The extra pixel gives the page an unmistakable "reading, not scanning" pace.
-- **Weight 300 is real and rare.** Used deliberately on a handful of large-size reads (`{typography.button-large}` at 18px/300 and `{typography.lead-airy}` at 24px/300). It's not an accident — it's a light-atmosphere cue reserved for moments where the content should feel airy.
-- **Weight 600, not 700, for headlines.** Apple's headlines sit at weight 600. Weight 700 is used sparingly for `{typography.tagline}` (21px) when a touch more assertion is needed.
-- **Line-height is context-specific.** Display sizes use 1.07–1.19 (tight). Body uses 1.47. Utility link stacks in the footer/store use an unusually relaxed 2.41 (`{typography.dense-link}`). The 2.41 is not a bug — it's how the footer's dense link columns breathe.
-- **Weight 500 is deliberately absent.** The ladder is 300 / 400 / 600 / 700. Mid-weight readings always use 600.
-
-### Note on Font Substitutes
-SF Pro is Apple's proprietary system font. When building off-system:
-
-- Use `system-ui, -apple-system, BlinkMacSystemFont` as the first stack entry — on macOS/iOS/Safari this resolves to the real SF Pro.
-- For non-Apple platforms, **Inter** (Google Fonts, variable) is the closest open-source equivalent. Inter at weight 600 with `font-feature-settings: "ss03"` approximates SF Pro's rounded "a" character.
-- Nudge `letter-spacing` down by `-0.01em` on display sizes to re-create the Apple tight feel; Inter's default tracking runs slightly wider than SF Pro.
-- For body text, tighten line-height by `0.03` (from 1.47 → 1.44) when substituting Inter — Inter's taller x-height needs less leading.
+- **Tracking negativo proporcional al tamaño.** ≈ -6% a -5% en el héroe, -4.5% en `h2`, -2.5% en `h3`. Cuanto más grande, más apretado. El texto de cuerpo nunca lleva tracking.
+- **Un solo peso para titulares: 500.** El 700 queda reservado al nombre de marca; los botones usan 650. No usar 600 ni 800.
+- **Una palabra serif por titular.** Se envuelve en `.serif` y se pinta de lima en el héroe. Más de una palabra rompe el efecto.
+- **Mono para metadatos, nunca para párrafos.** Courier New aparece en eyebrows, etiquetas, coordenadas, ticker y notas de laboratorio. Siempre con tracking positivo (0.3–1.5px).
+- **Tamaño mínimo 11px** en cualquier elemento visible (se ajustó en `site.css` por accesibilidad; antes había 6–9px). Los `input` en móvil son 16px para evitar el zoom de iOS.
+- **Lectura larga**: 16px con interlineado 1.8 y color `{colors.ink-legal}`.
+- `-webkit-font-smoothing: antialiased` global.
 
 ## Layout
 
 ### Spacing System
-- **Base unit:** 8px. Sub-base values (2, 4, 5, 6, 7) are used for tight typographic adjustments; structural layout snaps to 8/12/16/20/24.
-- **Tokens:** `{spacing.xxs}` 4px · `{spacing.xs}` 8px · `{spacing.sm}` 12px · `{spacing.md}` 17px · `{spacing.lg}` 24px · `{spacing.xl}` 32px · `{spacing.xxl}` 48px · `{spacing.section}` 80px.
-- **Section vertical padding:** `{spacing.section}` (80px) inside a product tile; tiles stack edge-to-edge with 0 gap (the color change provides the break).
-- **Card padding:** `{spacing.lg}` (24px) inside utility grid cards.
-- **Button padding:** 8–11px vertical, 15–22px horizontal.
-- **Universal rhythm constants:** the 17px body line-height multiplier (~25px line) and 21px tagline size show up on every analyzed page.
+- **Base:** 4/8px, con ritmo principal en 12 · 16 · 24 · 32 · 48.
+- **Tokens:** `{spacing.xxs}` 4 · `{spacing.xs}` 8 · `{spacing.sm}` 12 · `{spacing.md}` 16 · `{spacing.lg}` 24 · `{spacing.xl}` 32 · `{spacing.xxl}` 48 · `{spacing.section}` 88.
+- **Sección:** padding vertical de ~88px en escritorio, 64px ≤800px, 55px ≤600px.
+- **Gutters laterales (`.wrap`):** 56px escritorio (>1100px) · 36px tablet (601–1100px) · 23px móvil, siempre sumando `env(safe-area-inset-*)`.
 
 ### Grid & Container
-- **Max content width:** ~980px on text-heavy sections (environment), ~1440px on product grids (store, accessories), full-bleed for product tiles (homepage).
-- **Column patterns:** 3 to 5 column utility card grid on store/accessories; 2-column side-by-side tiles on homepage occasional sections; single-column centered stack on product tile heroes.
-- **Gutters:** 20–24px between cards in a utility grid.
+- **Ancho máximo:** 1320px (`.wrap`), 1208px para el bloque de contacto, 1100px para encabezado legal y banner, 820px para texto legal.
+- **Héroe:** 2 columnas `1.15fr / 1fr`; apila en una columna ≤600px.
+- **Disciplinas / tarjetas:** rejilla de 3 columnas con un único borde exterior y divisores internos de 1px (no tarjetas separadas); en móvil pasa a bloque con divisores horizontales.
+- **Sobre nosotros / Proceso:** 2 columnas con 90px de separación; 45px ≤1100px; 30–35px ≤800px; 1 columna ≤600px (el arte pasa debajo del texto).
 
 ### Whitespace Philosophy
-Apple's whitespace is the product's pedestal. Every tile begins with at least 64px of air above its headline and 48–64px below. Product renders are never crowded; the nearest content to a product image is at least 40px away. The footer is the only area that breaks this — there, Apple goes deliberately dense to make the full information architecture visible at a glance.
+Aire generoso alrededor de titulares (margen superior 25–40px, inferior 25–46px) pero **bloques de contenido compactos**. La densidad se concentra en micro-detalles de terminal (etiquetas, coordenadas) para dar sensación de "interfaz viva" sin ruido. Las secciones se separan con borde de 1px o con cambio de superficie (`{colors.bg}` → `{colors.surface-raised}`), no con espaciado enorme.
 
 ## Elevation & Depth
 
-| Level | Treatment | Use |
+| Nivel | Tratamiento | Uso |
 |---|---|---|
-| Flat | No shadow, no border | Full-bleed tiles, global nav, footer, body sections |
-| Soft hairline | 1px `rgba(0, 0, 0, 0.08)` border | Utility cards, sub-nav frosted-glass separator |
-| Backdrop blur | `backdrop-filter: blur(N)` on Parchment 80% | Sub-nav and the iPhone buy floating sticky bar |
-| Product shadow | `rgba(0, 0, 0, 0.22) 3px 5px 30px 0` | Product renders resting on a surface (the only true "shadow" in the system) |
+| Flat | Sin sombra, borde 1px `{colors.line}` | Rejillas, secciones, ticker, pie |
+| Superficie elevada | Cambio de fondo + borde superior/inferior | `lab-section`, `game-shell` |
+| Sombra dura | `7px 7px 0 {colors.surface-shadow}` (sin blur) | Ventana pixel violeta |
+| Sombra dura grande | `drop-shadow(13px 15px 0 #080a07)` | Pegatina de uva del héroe |
+| Resplandor | `drop-shadow(0 0 35px #8b5cf619)` | Halo violeta sutil de la uva |
+| Flotante | `0 12px 48px #0007` | Banner de consentimiento |
+| Backdrop | `#070907d9` + `backdrop-filter: blur(6px)` | Fondo de diálogos |
 
-**Shadow philosophy.** Apple uses **exactly one** drop-shadow, and it is applied to photographic product imagery — never to cards, never to buttons, never to text. Elevation in the UI comes from (a) surface-color change (light tile ↔ dark tile) and (b) backdrop-blur on sticky bars. The single shadow is about giving the product weight, not about UI hierarchy.
+**Filosofía de sombras.** Las sombras *duras sin desenfoque* son la firma de "pegatina de videojuego" y se usan solo en elementos decorativos del héroe. Los elementos funcionales (botones, tarjetas, inputs) no llevan sombra: usan borde y contraste de superficie. La única sombra suave real es la del banner de consentimiento, que debe separarse del contenido.
 
 ### Decorative Depth
-- **Atmospheric imagery** on the environment page (photographic vista) supplies mood; no CSS gradient involved.
-- **Edge-to-edge tile alternation** creates rhythm without borders or shadows — the color change itself is the divider.
-- **Backdrop-filter blur** on `{component.sub-nav-frosted}` and `{component.floating-sticky-bar}` creates a "floating over content" effect that's functional, not decorative.
+- **Cuadrícula en perspectiva** (`perspective(600px) rotateX(15deg) rotateZ(-8deg)`) detrás de la ilustración del héroe, con máscara radial.
+- **Órbitas** de 1px (sólida y punteada) rotadas con `scaleY` para sugerir un diagrama espacial.
+- **Pegatinas rotadas** (−11°, −10°, +10°, +7°) para romper la ortogonalidad; la tarjeta "sobre nosotros" rota −2° (−1° en móvil).
+- **Estrellas / chispas** (`✦`, `+`) en lima y violeta.
 
 ## Shapes
 
 ### Border Radius Scale
 
-| Token | Value | Use |
+| Token | Valor | Uso |
 |---|---|---|
-| `{rounded.none}` | 0px | Full-bleed product tiles (no corner rounding) |
-| `{rounded.xs}` | 5px | Inline links when styled as subtle chips (rare) |
-| `{rounded.sm}` | 8px | Dark utility buttons (Sign In, Bag), inline card imagery |
-| `{rounded.md}` | 11px | White Pearl Button capsules |
-| `{rounded.lg}` | 18px | Store utility cards, accessories grid cards |
-| `{rounded.pill}` | 9999px | Primary blue pill CTAs, sub-nav buy button, configurator option chips, search input — the signature Apple pill |
-| `{rounded.full}` | 9999px / 50% | Circular control chips floating over photography |
+| `{rounded.none}` | 0 | Sombras duras, lienzo de juego |
+| `{rounded.xs}` | 4px | Botones, botones pequeños, inputs, panel de arte |
+| `{rounded.sm}` | 5px | Botón de nav, rejilla de disciplinas, ventana pixel, menú móvil |
+| `{rounded.md}` | 6px | Recuadro de juego, sección de contacto, nota legal |
+| `{rounded.lg}` | 9px | Diálogos (el radio más grande del sistema) |
+| `{rounded.full}` | 50% | Punto de estado, puntos de la ventana pixel |
 
-### Photography Geometry
-- **Hero imagery**: full-bleed, 21:9 or taller on the homepage; 16:9 on environment and shop pages. Product renders are photographic-realistic, often shot on a tinted surface that becomes the tile background.
-- **Product renders**: PNG/WebP with transparency; rest on a surface tile and pick up the system shadow.
-- **Accessory grid**: square 1:1 crops at `{rounded.lg}` (18px) radius, light neutral backgrounds, product centered with 20–40px internal padding.
-- **No rounded imagery in hero tiles** — images are full-bleed rectangular. Rounding (`{rounded.sm}`, `{rounded.lg}`) appears only on inline card imagery.
-- Lazy-loading via responsive `srcset` and `sizes` across all breakpoints; CDN-optimized WebP.
+### Pixel art y geometría
+- Las uvas, avatares y el icono del 404 usan `image-rendering: pixelated` y se escalan en múltiplos enteros cuando es posible.
+- Los avatares son **ilustraciones decorativas**, no retratos de los fundadores.
+- Los trazos de íconos SVG son `stroke-width: 2.3`, `stroke-linecap: square`, sin relleno; el cap cuadrado mantiene la estética de píxel.
+- El lienzo del juego mantiene relación 1000:360 (alto fijo ≈310–330px en móvil).
 
 ## Components
 
-### Top Navigation
+### Header y Navegación
 
-**`global-nav`** — Persistent, ultra-thin black nav bar pinned to the top of every page. Background `{colors.surface-black}`, height 44px, text `{colors.on-dark}` in `{typography.nav-link}` (12px / 400 / -0.12px tracking). Links are quiet, spaced ~20px apart, running edge-to-edge across the top. Right-aligned cluster: Search, Bag icons — always visible. On mobile, collapses to hamburger at ~834px and the Apple logo centers.
+**`header`** — Altura 112px, transparente sobre `{colors.bg}`, flex con `gap: 35px`. Marca a la izquierda, enlaces `{typography.nav-link}` color `{colors.ink-nav}` a la derecha, seguidos de `{component.nav-cta}`. Hover de enlaces: `{colors.lime}`. Altura 88–90px ≤800px.
 
-**`sub-nav-frosted`** — Surface-specific nav that sticks below the global nav. Background `{colors.canvas-parchment}` at 80% opacity with backdrop-filter blur, creating a frosted-glass effect. Height 52px. Content on left: product category name ("iPhone", "Store", "Accessories") in `{typography.tagline}` (21px / 600). Content right: inline nav links in `{typography.button-utility}` (14px), ending in a persistent `{component.button-primary}` ("Buy") or a utility link.
+**`mobile-menu`** — ≤800px los enlaces se ocultan tras un botón hamburguesa (`menu-toggle`, 44px mínimo, borde `{colors.line}`, radio 4px). Al abrirse se muestra como panel absoluto de `{colors.surface-menu}` con borde `{colors.line}` y radio 5px. ≤600px el CTA ocupa una fila completa debajo de la marca.
+
+**`brand`** — Logo de uvas pixeladas + nombre en `{typography.brand}` y una línea `small` en mono (oculta en móvil ≤600px).
+
+**`nav-cta`** — Fondo lima, texto `{colors.on-lime}`, peso 650, altura mínima 44px, flecha o símbolo en un `span` hijo.
 
 ### Buttons
 
-**`button-primary`** — The signature Apple action. Background `{colors.primary}` (Action Blue #0066cc), text `{colors.on-primary}` in `{typography.body}` (SF Pro Text 17px / 400), rounded `{rounded.pill}` (full pill — capsule-shaped), padding 11px × 22px. The full-pill radius IS the brand action signal.
-- Active state: `{component.button-primary-active}` — `transform: scale(0.95)` (the system-wide micro-interaction).
-- Focus state: `{component.button-primary-focus}` — 2px solid `{colors.primary-focus}` outline.
+**`button-lime`** — Acción primaria. Fondo `{colors.lime}`, texto `{colors.on-lime}`, `{typography.button}`, radio 4px, padding 14px × 21px, altura mínima 48px, `gap` 25px entre texto e icono. Hover: sube 3px (`translateY(-3px)`) y cambia a `{colors.lime-hover}`; transición de 0.2s.
 
-**`button-secondary-pill`** — Used as the second CTA when two blue pills appear together ("Learn more" / "Buy"). Background transparent, text `{colors.primary}`, 1px solid `{colors.primary}` border, rounded `{rounded.pill}`, padding 11px × 22px. Reads as a "ghost pill."
+**`button-dark`** — Acción primaria cuando el fondo ya es lima (sección de contacto). Fondo `{colors.button-dark}`, texto `{colors.on-button-dark}`, ancho mínimo 210px.
 
-**`button-dark-utility`** — Global nav actions (Sign In, Bag, language selector). Background `{colors.ink}` (#1d1d1f), text `{colors.on-dark}` in `{typography.button-utility}` (14px / 400 / -0.224px tracking), rounded `{rounded.sm}` (8px), padding 8px × 15px. Active state shrinks via `transform: scale(0.95)`.
+**`button-small`** — Acción secundaria/utilidad. Transparente, borde 1px `{colors.line-control}`, radio 4px, padding 8px × 12px, 44px de alto mínimo. Hover: fondo `{colors.lime-wash}`. Deshabilitado: opacidad 0.4.
 
-**`button-pearl-capsule`** — Product-card secondary button. Background `{colors.surface-pearl}` (#fafafc), text `{colors.ink-muted-80}` in `{typography.caption}` (14px), 3px solid `{colors.divider-soft}` border (functions as a soft ring rather than a visible line), rounded `{rounded.md}` (11px), padding 8px × 14px.
+**`button-consent`** — Borde 1px lima, texto lima, transparente, 44px. Las dos acciones del banner usan este mismo estilo (aceptar y rechazar con el mismo peso visual).
 
-**`button-store-hero`** — A larger primary CTA used on store hero surfaces. Same Action Blue + Paper White as `{component.button-primary}`, but with `{typography.button-large}` (18px / 300 — note the rare weight 300) and slightly more padding (14px × 28px). Used sparingly on the store landing.
+**`text-link`** — 12px, color heredado; hover a `{colors.lime}`; `min-height: 44px` con `inline-flex`. Acompañado de una flecha o `↗` con `gap: 10px`.
 
-**`button-icon-circular`** — Floats over photography. 44 × 44px, background `{colors.surface-chip-translucent}` at ~64% alpha, icon in `{colors.ink}`, rounded `{rounded.full}`. Used for carousel controls, close buttons, and in-image controls (product image thumbnails on the iPhone buy page).
+**Foco**: `outline: 3px solid {colors.purple}; outline-offset: 5px` en todo elemento interactivo (`:focus-visible`). `::selection` usa lima sobre carbón. El `skip-link` (lima, fijo arriba a la izquierda) se revela al recibir foco.
 
-**`text-link`** — Inline body links in `{colors.primary}` (Action Blue). Underlined or non-underlined per context.
+### Eyebrows y etiquetas
 
-**`text-link-on-dark`** — Inline body links on dark tiles in `{colors.primary-on-dark}` (Sky Link Blue #2997ff) — Action Blue would disappear against `{colors.surface-tile-1}`.
+**`eyebrow`** — Courier New 11px, tracking 1px, color lima en encabezados de sección y `{colors.ink-eyebrow}` en el héroe. Suele ir precedido de un `status-dot` (círculo lima de 6px con halo `0 0 0 4px #c4f56412`) o de texto estilo `// 01 · disciplinas`.
 
-### Cards & Containers
+**`sticker-label-code`** — Etiqueta rotada −10°, fondo `{colors.panel}`, borde 1px `#3c4233`, texto lima.
 
-**`product-tile-light`** — Full-bleed light tile. Background `{colors.canvas}` (white), text `{colors.ink}`, rounded `{rounded.none}` (0 — tiles touch edges), vertical padding `{spacing.section}` (80px). Centered stack: product name in `{typography.display-lg}` (40px / 600) → one-line tagline in `{typography.lead}` (28px / 400) → two `{component.button-primary}` CTAs ("Learn more" / "Buy") → product render resting on the surface with the system shadow.
+**`sticker-label-play`** — Etiqueta rotada +10°, fondo lima, texto carbón, negrita.
 
-**`product-tile-parchment`** — Same as `{component.product-tile-light}` but on `{colors.canvas-parchment}` (#f5f5f7). Used to break two consecutive white tiles.
+### Cintas y secciones
 
-**`product-tile-dark`** — Full-bleed dark tile. Background `{colors.surface-tile-1}` (#272729), text `{colors.on-dark}`, rounded `{rounded.none}`, vertical padding `{spacing.section}` (80px). Same content stack as the light tile but with `{component.text-link-on-dark}` for inline copy and `{component.button-primary}` (Action Blue still works on the dark surface). Used on the homepage product grid as the alternating dark band.
+**`ticker`** — Banda de 61px con `{colors.surface-ticker}`, bordes superior e inferior `{colors.line}`, texto mono 11px con tracking 1.5px, elementos separados por `✦` lima de 20px. Se centra en escritorio y alinea a la izquierda con scroll en móvil.
 
-**`product-tile-dark-2`** — Variant on `{colors.surface-tile-2}` (#2a2a2c). Used where a dark tile sits directly above or below `{component.product-tile-dark}` to create the faintest separation through micro-step lightness change.
+**`section-top`** — Fila con `eyebrow` lima a la izquierda y metadato mono a la derecha (oculto ≤800px), seguida de `section-heading` (h2 a la izquierda, párrafo de 310px máx. a la derecha alineado abajo).
 
-**`product-tile-dark-3`** — Variant on `{colors.surface-tile-3}` (#252527). Used at the bottom of the stack and in embedded video/player frames.
+**`discipline-grid`** — Rejilla de 3 columnas con un solo borde 1px `{colors.line}` y radio 5px. Cada celda: fila superior de 75px con ícono SVG (65 × 52, trazo lima / violeta / sand rotando) y etiqueta mono, `h3` en `{typography.heading}`, descripción en `{colors.muted}` y etiqueta mono inferior.
 
-**`store-utility-card`** — Used in store grid and accessories grid. Background `{colors.canvas}` (white), 1px solid `{colors.hairline}` border, rounded `{rounded.lg}` (18px), padding `{spacing.lg}` (24px). Top: product image (1:1 crop with `{rounded.sm}` (8px) inner image radius). Below: product name in `{typography.body-strong}` (17px / 600), price in `{typography.body}` (17px / 400), and a `{component.text-link}` ("Buy" or "Learn more"). No shadow by default; product render itself carries the system product-shadow.
+**`section-panel` / `lab-section`** — Fondo `{colors.surface-raised}` con borde superior e inferior `{colors.line}`; contiene el módulo interactivo.
 
-**`configurator-option-chip`** — Pill-shaped tappable cell used in the iPhone 17 Pro buy page. Background `{colors.canvas}`, text `{colors.ink}` in `{typography.caption}`, rounded `{rounded.pill}`, padding 12px × 16px. Contains a small product thumbnail + label + price delta. Arranged in a grid of 4–5 options per row.
+**`process-step`** — Lista sin viñetas; cada paso con borde superior 1px `{colors.line}` (el primero sin borde), número mono lima de 10–11px a la izquierda y `h3` de 16px + descripción de 12px a la derecha.
 
-**`configurator-option-chip-selected`** — Selected state. Border upgrades to 2px solid `{colors.primary-focus}`. Same shape, same content.
+### Módulo de juego
 
-**`environment-quote-card`** — A photographic-canvas hero specific to the environment page. Dark photographic backdrop (mountain vista at dawn) with `{colors.surface-tile-1}` as the fallback color, centered white-text headline in `{typography.display-lg}` (40px), small green "Apple 2030" pictographic logo above the headline, single `{component.button-primary}` below. Padding `{spacing.section}` (80px).
+**`game-shell`** — Borde 1px `{colors.line-strong}`, radio 6px, overflow oculto. Estructura vertical: `game-toolbar` (`{colors.surface-toolbar}`, mono 10–11px, punto violeta cuadrado de 7px) → `game-stage` (`{colors.surface-stage}`, canvas pixelado, `touch-action: manipulation`) → barra inferior (`{colors.surface-footer-bar}`) con controles `button-small`.
 
-**`floating-sticky-bar`** — Floats at the bottom of the viewport on the iPhone 17 Pro buy page during scroll. Background `{colors.canvas-parchment}` at 80% opacity with `backdrop-filter: blur(N)`, height 64px, padding 12px × 32px. Left: running price total in `{typography.body}`. Right: `{component.button-primary}` ("Add to Bag").
+**Overlay del juego** — Capa `#19142138`, título `h3` 43px en `#fff5e8`, instrucciones mono en `#ece0ff`, botón lima centrado.
 
-### Inputs & Forms
+### Cards y paneles
 
-**`search-input`** — The accessories search input. Background `{colors.canvas}`, text `{colors.ink}` in `{typography.body}` (17px), 1px solid `rgba(0, 0, 0, 0.08)` border, rounded `{rounded.pill}` (full pill — search is also pill-shaped, matching the CTA grammar), padding 12px × 20px, height 44px. Leading icon: search glyph at 14px, muted tint.
+**`art-panel`** — Panel de ilustración: fondo `{colors.surface-art}`, borde 1px `#3a442e`, radio 4px, cuadrícula de 24px con líneas `#859e4212`, rotado −2°. Contiene los avatares pixelados con nombres en `{typography.heading}` y un `+` lima entre ellos.
 
-Error and validation states were not surfaced in the analyzed pages.
+**`mini-window`** — Ventana pixel violeta: fondo `{colors.purple}`, texto `{colors.purple-ink}`, borde 2px `#181914`, radio 5px, sombra dura `7px 7px 0`, barra superior de 24px con tres puntos de 5px.
+
+**`contact-section`** — Bloque invertido de fondo lima, radio 6px, ancho máx. 1208px. Fila superior mono de 9–11px, titular `{typography.display-xl}` con una uva pixelada rotada +15° a la derecha (se oculta ≤600px), y pie con texto y `button-dark`.
+
+### Inputs, diálogos y consentimiento
+
+**`dialog`** — Ancho `min(560px, 100% - 32px)`, fondo `{colors.panel}`, borde 1px `{colors.line-dialog}`, radio 9px, padding 29px (22px móvil). `::backdrop` con `{colors.backdrop}` y blur 6px. El cuerpo no hace scroll mientras está abierto (`body:has(dialog[open])`). Botón cerrar de 44 × 44px.
+
+**`input`** — Fondo `{colors.surface-input}`, borde 1px `{colors.line-input}`, radio 4px, padding 12px, 14px de fuente (16px en móvil, 44px de alto mínimo). `label` de 12–13px con 18px de separación superior. Mensaje de estado en lima (`#brief-status`, alto mínimo 20px). Campo trampa anti-spam `contact-trap` oculto visualmente (1×1px, `clip-path: inset(50%)`).
+
+**`consent-banner`** — Fijo inferior con márgenes `max(16px, safe-area)`, fondo `{colors.surface-consent}`, borde 1px `{colors.line-consent}`, radio 8px, padding 24px, `box-shadow: 0 12px 48px #0007`, `z-index: 50`. Título 21px, texto 13px en `#d5dccb`, acciones a la derecha (apiladas en móvil, ancho completo).
+
+### Páginas legales y 404
+
+**`legal-page`** — Ancho máximo 820px, `h1` `clamp(34px, 5vw, 52px)` con tracking -1.7px, `h2` 25px, cuerpo `{typography.body-legal}` en `{colors.ink-legal}`, enlaces lima subrayados con `text-underline-offset: 3px`. `legal-draft-note`: borde 1px `{colors.line}`, radio 6px, 13px, para avisos de borrador.
+
+**`not-found`** — Centrado, máx. 800px, icono pixelado, eyebrow centrado, texto en `{colors.muted}`, botón lima y navegación en línea de 14px.
 
 ### Footer
 
-**`footer`** — Background `{colors.canvas-parchment}` (#f5f5f7), text `{colors.ink-muted-80}`. Link columns in `{typography.dense-link}` (17px / 400 / 2.41 line-height — the relaxed leading is what makes the dense columns scannable). Column headings in `{typography.caption-strong}` (14px / 600). Legal row at the very bottom in `{typography.fine-print}` (12px / 400) with `{colors.ink-muted-48}` text. Vertical padding 64px.
+**`footer`** — Altura mínima 150px, flex con wrap, padding vertical 32px. Marca a 17px, texto mono en `{colors.muted}`, enlaces legales (privacidad, términos, gestionar cookies) a 12px centrados con `gap: 8px 24px`; hover a lima. Debe incluir siempre acceso a privacidad, términos y preferencias de consentimiento.
 
 ## Do's and Don'ts
 
 ### Do
-- Use `{colors.primary}` (Action Blue #0066cc) for every interactive element — links, pill CTAs, focus signals — and nothing else. The single accent is non-negotiable.
-- Set headlines in `{typography.hero-display}` or `{typography.display-lg}` with negative letter-spacing (`-0.28 → -0.374px`) to get the signature "Apple tight" cadence.
-- Run body copy at `{typography.body}` (17px / 400 / 1.47 / -0.374px) — not 16px. The extra pixel defines the brand's reading pace.
-- Alternate `{component.product-tile-light}` (or parchment) and `{component.product-tile-dark}` for full-bleed section rhythm. The color change IS the divider.
-- Reserve `{rounded.pill}` for the primary blue CTA and any other element that should read as an "action" (configurator chips, search input, sticky bar CTA).
-- Apply the single product-shadow (`rgba(0, 0, 0, 0.22) 3px 5px 30px`) only to product renders resting on a surface — never on cards, buttons, or text.
-- Use `transform: scale(0.95)` as the active/press state on every button — it's the system-wide micro-interaction.
-- Keep the global nav `{colors.surface-black}` (true black) — it's the only place pure black appears on most pages.
+- Usar `{colors.lime}` para toda acción primaria y énfasis, y `{colors.purple}` para foco y decoración de juego. Es el par fijo de la marca.
+- Mantener el fondo `{colors.bg}`; subir de nivel solo a `{colors.panel}` o `{colors.surface-raised}`.
+- Poner tracking negativo en todo titular ≥ 21px y proporcionarlo al tamaño.
+- Resaltar **una** palabra por titular en Georgia cursiva (lima en el héroe).
+- Usar Courier New con tracking positivo para eyebrows, etiquetas y metadatos de "terminal".
+- Dibujar separaciones con bordes de 1px en la familia `line-*` (olivas), no con sombras.
+- Reservar las sombras duras sin blur (`7px 7px 0`) para elementos tipo pegatina y ventana pixel.
+- Garantizar 44px mínimo en cualquier elemento interactivo, foco visible de 3px y tamaño de texto ≥ 11px.
+- Respetar `prefers-reduced-motion` (sin transiciones ni animaciones) y las áreas seguras (`env(safe-area-inset-*)`).
+- Usar `image-rendering: pixelated` en pixel art y trazos `square` en íconos.
+- Dar el mismo peso visual a "aceptar" y "rechazar" en banners de consentimiento.
+- Rotar elementos decorativos unos pocos grados para dar energía lúdica (nunca texto de lectura).
 
 ### Don't
-- Don't introduce a second accent color; every "click me" signal is `{colors.primary}` (Action Blue).
-- Don't add shadows to cards, buttons, or text — shadow is reserved for product imagery.
-- Don't use gradients as decorative backgrounds; atmosphere comes from photography.
-- Don't set body copy at weight 500 — Apple's ladder is 300 / 400 / 600 / 700, with 500 deliberately absent. Body is always 400; strong inline is 600; display is 600.
-- Don't round full-bleed tiles — tiles are rectangular and edge-to-edge; the color change is the divider.
-- Don't tighten line-height below 1.47 for body copy — the editorial leading is part of the brand.
-- Don't mix radii grammars — use `{rounded.sm}` for compact utility, `{rounded.lg}` for utility cards, `{rounded.pill}` for pills, and nothing in between (except the rare `{rounded.md}` Pearl Button).
-- Don't use `{colors.primary-on-dark}` (Sky Link Blue) on light surfaces — it's the dark-tile-only variant. Action Blue is for light surfaces.
+- No introducir un tercer color de acento ni usar lima y violeta con roles invertidos.
+- No usar blanco puro ni negro puro: tinta crema `{colors.ink}` sobre carbón verdoso.
+- No añadir gradientes decorativos ni sombras suaves a botones, tarjetas o inputs.
+- No usar radios grandes ni pills (>9px) fuera del punto de estado circular.
+- No poner peso 600 o 800 en titulares: titulares en 500, marca en 700, botones en 650.
+- No usar la fuente mono en párrafos ni sin tracking.
+- No poner más de una palabra serif por titular.
+- No bajar de 11px ni de 44px de área táctil; no confiar solo en el color para comunicar estado.
+- No separar tarjetas con huecos y sombras: usar rejilla con bordes compartidos.
+- No añadir animaciones que no se puedan desactivar con `prefers-reduced-motion`.
+- No usar los avatares decorativos como retratos reales de las personas.
+- No prometer servicios, plazos o experiencia que no se puedan demostrar (ver tono de marca en [IDENTIDAD.md](IDENTIDAD.md)).
 
 ## Responsive Behavior
 
 ### Breakpoints
 
-| Name | Width | Key Changes |
+| Nombre | Ancho | Cambios clave |
 |---|---|---|
-| Small phone | ≤ 419px | Single-column tiles; sub-nav collapses to category name + primary CTA only; hero typography drops to 28px |
-| Phone | 420–640px | Single-column stack; product renders scale to 80% of tile width; hero h1 drops to 34px |
-| Large phone | 641–735px | Tiles transition to tighter padding (48px vertical vs 80px); fine-print wraps |
-| Tablet portrait | 736–833px | Global nav collapses to hamburger; sub-nav hides category chips, keeps primary CTA |
-| Tablet landscape | 834–1023px | Global nav returns fully expanded; 3-column utility grids become 2-column |
-| Small desktop | 1024–1068px | Product tiles use 2/3 width with margin gutters; hero h1 stays at 40px |
-| Desktop | 1069–1440px | Full layout; 4–5 column store grids; 1440px content max |
-| Wide desktop | ≥ 1441px | Content locks at 1440px, margins absorb extra width |
-
-The structural breakpoints that matter for agents: 1440px (content lock), 1068px (small-desktop), 833px (tablet landscape switch), 734px (tablet portrait), 640px (phone), 480px (small phone).
+| Móvil pequeño | ≤ 360px | Héroe h1 48px, arte escala 0.78, sección de contacto h2 38px |
+| Móvil | ≤ 600px | Gutter 23px; header en 2 filas con CTA a ancho completo; héroe en columna; rejilla de disciplinas en bloque; contacto h2 45px; diálogo en columna |
+| Tablet | 601–800px | Header 90px con menú hamburguesa; héroe `1.1fr / .9fr` con arte a escala 0.7; secciones con padding 64px |
+| Tablet ancho | 801–1100px | Gutter 36px; h1 80px; arte a escala 0.88; navegación más compacta |
+| Escritorio | 1101–1439px | Gutter 56px, ancho máx. 1320px |
+| Escritorio ancho | ≥ 1440px | Héroe h1 106px; contenido bloqueado a 1320px |
+| Altura baja | ≤ 500px landscape | `dialog` y banner con `max-height: calc(100dvh - 24px)` y scroll interno |
 
 ### Touch Targets
-- Minimum 44 × 44px. `{component.button-primary}` lands at ~44 × 100px (with the full-pill radius making the visible hit area more generous than the label suggests).
-- `{component.button-icon-circular}` is exactly 44 × 44px.
-- Global nav utility links are smaller (~32 × 80px) — they deliberately sit at a tighter target because they're precision desktop actions, and the mobile hamburger replaces them at ≤ 833px.
+- Mínimo **44 × 44px** (`min-height: 44px; min-width: 44px`) en botones, enlaces de texto, toggles y botones de cierre.
+- Botones del héroe en móvil: `min-height: 48px`.
+- Inputs en móvil a 16px para evitar el zoom automático de iOS.
 
 ### Collapsing Strategy
-- **Global nav**: full horizontal link row on desktop → collapses to Apple logo + hamburger + bag icon at 834px and below.
-- **Sub-nav**: category name + inline links + primary CTA → category name + primary CTA only at mobile; inline links move into a hamburger tray.
-- **Product tiles**: stack from 2-column to 1-column at 834px; vertical padding tightens from 80px → 48px at small-phone.
-- **Utility grids** (store, accessories): 5-col → 4-col (1440px) → 3-col (1068px) → 2-col (834px) → 1-col (640px).
-- **Hero typography**: `{typography.hero-display}` (56px) → `{typography.display-lg}` (40px) at 1068px → 34px at 640px → 28px at 419px.
+- **Header:** fila completa → marca + CTA + hamburguesa; la línea `small` de la marca se oculta ≤600px.
+- **Héroe:** 2 columnas → 1; el arte se reduce con `transform: scale()` y márgenes negativos en lugar de recomponerse.
+- **Titulares:** `clamp()` fluido; el `white-space: nowrap` del h1 se desactiva ≤800px.
+- **Rejillas:** 3 columnas → bloque con divisores horizontales.
+- **Metadatos laterales** (`section-top > .mono`, versión del juego, segunda línea del contacto): se ocultan en móvil.
+- **Banner de consentimiento:** fila → columna, acciones a ancho completo.
 
 ### Image Behavior
-- All product imagery uses responsive `srcset` with breakpoint-matched crops.
-- Hero photography may switch art direction at mobile (e.g., the environment page's vista crops to a taller aspect ratio on mobile, framing the subject differently).
-- Product renders maintain their 1:1 or 4:3 aspect ratios across breakpoints; only scale changes.
-- Lazy-loading is default; the above-fold hero loads eagerly.
+- Pixel art siempre con `image-rendering: pixelated`.
+- Iconos de aplicación en `public/` (favicon, 192, 512, apple-touch) y `og-image.png` para redes.
+- Las ilustraciones decorativas llevan `alt` vacío o descriptivo corto; el contenido informativo nunca vive solo en la imagen.
+
+## Motion
+
+- **Librería:** `motion` (framer-motion) con `LazyMotion` (ver [src/MotionProvider.tsx](src/MotionProvider.tsx)).
+- **Reveal de sección** ([src/components/Reveal.tsx](src/components/Reveal.tsx)): `opacity 0.92 → 1`, `y 8 → 0`, 0.5s `easeOut`, `once: true`, `amount: 0.08`. `initial={false}` para que el contenido sea visible sin JS (prerender).
+- **Hover de botón:** `translateY(-3px)` + cambio de color, 0.2s.
+- **Hover de pegatina:** rota a 2° y sube 10px, 0.4s.
+- **Scroll:** `scroll-behavior: smooth` y `scroll-padding-top` para anclas.
+- **Reducción de movimiento:** con `prefers-reduced-motion: reduce` se desactivan `transition` y `animation` globalmente y `Reveal` pasa a duración 0.
+
+## Accesibilidad y cumplimiento (parte del sistema)
+
+- `skip-link` al inicio de cada página.
+- `:focus-visible` siempre visible en violeta.
+- Regiones con `aria-labelledby` (el componente `Reveal` lo soporta).
+- Banner de consentimiento antes de cargar analítica; acciones equivalentes en peso visual ([src/lib/consent.ts](src/lib/consent.ts), [src/components/ConsentBanner.tsx](src/components/ConsentBanner.tsx)).
+- Páginas de **Privacidad** y **Términos** con layout propio ([src/pages/LegalLayout.tsx](src/pages/LegalLayout.tsx)), enlazadas desde el pie.
+- Correo de contacto ofuscado y campo trampa anti-spam en formularios.
+- Cabeceras de seguridad y HTTPS forzado ([worker/security.mjs](worker/security.mjs), [public/enforce-https.js](public/enforce-https.js)).
+
+## Cómo usar este template en una plataforma nueva
+
+1. **Copiar tokens.** Pegar el bloque `:root` de la sección *Colors* y los imports `@fontsource-variable/dm-sans` y `@fontsource-variable/space-grotesk`.
+2. **Reset base.** `box-sizing: border-box`, `body { background: var(--bg); color: var(--ink); font: 16px/1.6 var(--sans); -webkit-font-smoothing: antialiased }`, foco violeta y `::selection` lima.
+3. **Esqueleto.** `skip-link` → `header` → héroe (eyebrow + h1 con una palabra serif + descripción + `button-lime` + `text-link`) → `ticker` → secciones con `section-top` → bloque de contacto lima → `footer` con enlaces legales.
+4. **Composición.** Alternar `{colors.bg}` y `{colors.surface-raised}`; usar el bloque lima solo una vez por página, para el llamado a la acción final.
+5. **Identidad.** Conservar las uvas pixeladas como marca; adaptar solo la ilustración del héroe y los textos al producto nuevo.
+6. **Revisar** la lista de Do's/Don'ts, contraste, 44px táctiles, 11px mínimos y reducción de movimiento antes de publicar.
 
 ## Iteration Guide
 
-1. Focus on ONE component at a time. Reference its YAML key directly (`{component.product-tile-dark}`, `{component.search-input}`).
-2. Variants of an existing component (`-active`, `-focus`, `-2`, `-3`) live as separate entries in `components:`.
-3. Use `{token.refs}` everywhere — never inline hex.
-4. Never document hover. Default and Active/Pressed states only.
-5. Display headlines stay SF Pro Display 600 with negative letter-spacing. Body stays SF Pro Text 400 at 17px. The boundary is unbreakable.
-6. The single drop-shadow (`rgba(0, 0, 0, 0.22) 3px 5px 30px`) is reserved for product photography only.
-7. When in doubt about emphasis: alternate surface (light → dark tile) before adding chrome.
+1. Trabajar **un componente a la vez**, referenciando su clave YAML (`{component.button-lime}`, `{component.dialog}`).
+2. Las variantes de estado (`-hover`) viven como entradas separadas en `components:`.
+3. Usar `{token.refs}` en el diseño; no escribir hexadecimales sueltos salvo los tonos de borde/relleno documentados arriba.
+4. Documentar solo los estados *default*, *hover*, *focus* (violeta 3px) y *disabled* (opacidad 0.4).
+5. Titulares: Space Grotesk 500 con tracking negativo. Cuerpo: DM Sans 400. Metadatos: Courier New con tracking positivo. Esa frontera no se rompe.
+6. Las sombras duras son solo decoración tipo pegatina; la UI funcional se separa con bordes.
+7. Ante la duda sobre el énfasis: cambiar de superficie o de acento (lima) antes de añadir cromo.
 
 ## Known Gaps
 
-- Form validation and error states were not surfaced on the analyzed pages; only the neutral search input is documented.
-- The homepage's embedded video/player frame uses `{colors.surface-black}`; interior player controls are not documented (they're a platform widget, not a web-design token).
-- Some component imagery is dynamic (rotating product hero) and its specific copy varies per surface — component specs name the structure, not the rotating content.
-- Dark-mode counterparts for store and accessories utility cards were not surfaced on the analyzed pages; the system documented is the daytime/light-dominant variant Apple ships by default.
-- Atmospheric photography (environment page mountain vista) is a content asset, not a design token; the documented `{component.environment-quote-card}` describes the structural surface only.
-- The exact backdrop-filter blur radius on `{component.sub-nav-frosted}` and `{component.floating-sticky-bar}` is platform-dependent; production CSS uses `saturate(180%) blur(20px)` as a typical baseline but the value isn't formalized as a token.
+- Los valores de fondo `#3c4233`, `#3a442e`, `#594973`, `#181914`, `#d5dccb`, `#fff5e8`, `#ece0ff`, `#c8cdbb`, `#d1dbbd`, `#d3dfb9`, `#afb999` y similares están en el CSS pero no se han formalizado como tokens; cuando se repitan en más de un componente conviene promoverlos a variables.
+- No existen estados de error/validación de formularios documentados; solo el mensaje de estado en lima.
+- No hay tema claro; el sistema es exclusivamente oscuro (la sección de contacto lima es la única inversión).
+- Los estilos viven en dos archivos CSS globales (`original.css` base y `site.css` de accesibilidad/legal) con CSS minificado en una línea; un proyecto nuevo puede reorganizarlos en capas (tokens → base → componentes) conservando los mismos valores.
+- Los avatares pixelados se dibujan con CSS (`.pixel-person`) y solo cubren dos variantes de color (`--shirt`, `--hair`); un sistema de personajes más amplio queda por definir.
+- El logo de referencia es el archivo proporcionado por el estudio (ver `public/assets/`); este documento no define reglas de espacio libre ni tamaños mínimos del logo.
