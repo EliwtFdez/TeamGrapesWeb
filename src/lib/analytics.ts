@@ -16,13 +16,20 @@ export const safePagePath = (pathname: string) => ['/', '/privacidad/', '/termin
 export class AnalyticsClient {
   private allowed = false;
   private initialized = false;
-  constructor(private id: string, private origin: string, private port: AnalyticsPort, private debug = false) {}
+  private id: string;
+  private origin: string;
+  private port: AnalyticsPort;
+  private debug: boolean;
+  constructor(id: string, origin: string, port: AnalyticsPort, debug = false) {
+    this.id = id; this.origin = origin; this.port = port; this.debug = debug;
+  }
   consent(granted: boolean) {
     this.allowed = granted;
     if (!this.id) return;
     this.port.disable(this.id, !granted);
     if (!granted) {
       if (this.initialized) this.port.queue('consent', 'update', denied);
+      this.initialized = false;
       this.port.clearCookies();
       return;
     }

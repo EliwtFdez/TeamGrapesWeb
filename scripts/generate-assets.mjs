@@ -1,0 +1,24 @@
+import sharp from 'sharp';
+import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { config } from './config.mjs';
+const svg = await readFile('public/assets/grape.svg', 'utf8');
+const grape = svg.replace(/<svg[^>]*>/, '').replace('</svg>', '');
+const square = `<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512"><rect width="512" height="512" rx="72" fill="#11120f"/><g transform="translate(115 65) scale(2.08) translate(-28 -10)" shape-rendering="crispEdges">${grape}</g></svg>`;
+for (const [size, filename] of [[180, 'apple-touch-icon.png'], [192, 'icon-192.png'], [512, 'icon-512.png']]) await sharp(Buffer.from(square)).resize(size, size).png().toFile('public/' + filename);
+const images = await Promise.all([16, 32, 48].map((size) => sharp(Buffer.from(square)).resize(size, size).png().toBuffer()));
+const header = Buffer.alloc(6 + 16 * images.length);
+header.writeUInt16LE(1, 2); header.writeUInt16LE(images.length, 4);
+let offset = header.length;
+images.forEach((buffer, i) => {
+  const at = 6 + 16 * i, size = [16, 32, 48][i];
+  header[at] = size; header[at + 1] = size; header.writeUInt16LE(1, at + 4); header.writeUInt16LE(32, at + 6); header.writeUInt32LE(buffer.length, at + 8); header.writeUInt32LE(offset, at + 12); offset += buffer.length;
+});
+await writeFile('public/favicon.ico', Buffer.concat([header, ...images]));
+const og = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630"><rect width="1200" height="630" fill="#11120f"/><text x="80" y="100" fill="#f1f0e8" font-family="Arial,sans-serif" font-size="34" font-weight="700" letter-spacing="2">TEAM GRAPES</text><text x="80" y="280" fill="#f1f0e8" font-family="Arial,sans-serif" font-size="90" font-weight="600" letter-spacing="-4">Ideas que</text><text x="80" y="385" fill="#c4f564" font-family="Georgia,serif" font-size="100" font-style="italic" letter-spacing="-3">se juegan.</text><g transform="translate(890 145) scale(1.85) translate(-28 -10)" shape-rendering="crispEdges">${grape}</g><text x="80" y="545" fill="#c6cbb9" font-family="Arial,sans-serif" font-size="23" letter-spacing="2">VIDEOJUEGOS · SOFTWARE · MECATRÓNICA</text></svg>`;
+await mkdir('public/assets', { recursive: true });
+await sharp(Buffer.from(og)).png().toFile('public/assets/og-image.png');
+await writeFile('public/site.webmanifest', JSON.stringify({ name: config.name, short_name: config.name, lang: 'es-MX', start_url: '/', display: 'standalone', background_color: '#11120f', theme_color: '#11120f', icons: [{ src: '/icon-192.png', sizes: '192x192', type: 'image/png', purpose: 'any' }, { src: '/icon-512.png', sizes: '512x512', type: 'image/png', purpose: 'any' }] }, null, 2) + '\n');
+await writeFile('public/robots.txt', `User-agent: *\nAllow: /\nSitemap: ${config.origin}/sitemap.xml\n`);
+const urls = ['/', '/privacidad/', '/terminos/'];
+await writeFile('public/sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls.map((url) => `<url><loc>${config.origin}${url}</loc></url>`).join('')}</urlset>\n`);
+console.log('Favicon, iconos, OG 1200×630, manifest, robots y sitemap generados.');

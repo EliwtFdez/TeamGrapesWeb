@@ -2,6 +2,10 @@ export const CONSENT_KEY = 'team-grapes-consent-v1';
 export const CONSENT_MAX_AGE = 180 * 24 * 60 * 60 * 1000;
 export type ConsentChoice = 'granted' | 'denied';
 
+export function openCookiePreferences() {
+  window.dispatchEvent(new Event('team-grapes:privacy-preferences'));
+}
+
 export function parseConsent(value: string | null, now = Date.now()): ConsentChoice | null {
   try {
     const record = JSON.parse(value || 'null');

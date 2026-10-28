@@ -3,10 +3,6 @@ import { siteConfig } from '../site.config';
 import { analytics } from '../lib/analytics';
 import { readConsent, saveConsent, type ConsentChoice } from '../lib/consent';
 
-export function openCookiePreferences() {
-  window.dispatchEvent(new Event('team-grapes:privacy-preferences'));
-}
-
 export function ConsentBanner() {
   const [visible, setVisible] = useState(() => Boolean(siteConfig.analytics.measurementId) && readConsent() === null);
   const firstAction = useRef<HTMLButtonElement>(null);

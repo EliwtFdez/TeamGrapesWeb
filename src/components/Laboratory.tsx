@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { GrapeRunEngine, initialView, pad } from '../game/GrapeRunEngine';
 import { Reveal } from './Reveal';
+import { analytics } from '../lib/analytics';
 
 export function Laboratory() {
   return (
@@ -22,7 +23,10 @@ function GrapeRun() {
   const reduced = useReducedMotion();
   useEffect(() => {
     if (!canvas.current) return;
-    const game = new GrapeRunEngine(canvas.current, setView);
+    const game = new GrapeRunEngine(canvas.current, (next) => {
+      if (next.phase === 'over') analytics.event('game_over', { score: next.score });
+      setView(next);
+    });
     engine.current = game;
     return () => { game.destroy(); engine.current = null; };
   }, []);
@@ -35,7 +39,7 @@ function GrapeRun() {
         <AnimatePresence>{!active && <motion.div id="game-overlay" className="game-overlay" initial={false} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: reduced ? 0 : 0.15 }}>
           <span className="mono">UN POCO DE DIVERSIÓN, DE PARTE DEL TEAM</span>
           <h3 id="game-title">{view.phase === 'over' ? `¡${pad(view.score)} puntos! ¿Otra ronda?` : <>Una uva.<br />Muchas posibilidades.</>}</h3>
-          <motion.button whileTap={{ scale: 0.97 }} id="play-game" className="button button-lime" onClick={() => { engine.current?.start(); jump.current?.focus({ preventScroll: true }); }}>{view.phase === 'over' ? 'Volver a jugar ↻' : <>Jugar un rato <span aria-hidden="true">▶</span></>}</motion.button>
+          <motion.button whileTap={{ scale: 0.97 }} id="play-game" className="button button-lime" onClick={() => { analytics.event('game_start'); engine.current?.start(); jump.current?.focus({ preventScroll: true }); }}>{view.phase === 'over' ? 'Volver a jugar ↻' : <>Jugar un rato <span aria-hidden="true">▶</span></>}</motion.button>
           <span className="game-instructions mono">ESPACIO O TOCA SALTAR · ESQUIVA LOS BLOQUES</span>
         </motion.div>}</AnimatePresence>
       </div>

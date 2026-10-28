@@ -1,14 +1,16 @@
 import { motion, useReducedMotion } from 'motion/react';
 import { Reveal } from './Reveal';
+import { siteConfig } from '../site.config';
+import { SiteFooter } from './SiteFooter';
 
-export function Hero() {
+export function Hero({ onOpen }: { onOpen: () => void }) {
 const reduced = useReducedMotion();
 return (<section className="hero wrap" id="inicio" aria-labelledby="hero-title">
       <div className="hero-copy">
         <p className="eyebrow"><span className="status-dot"></span> UN PEQUEÑO ESTUDIO. MUCHA CURIOSIDAD.</p>
         <h1 id="hero-title">Ideas que<br />se <span className="serif">juegan.</span><span className="pixel-spark" aria-hidden="true">✳</span></h1>
         <p className="hero-description">Creamos videojuegos, software y cosas que todavía no sabemos cómo llamar.<br /><strong>Si nos da curiosidad, lo construimos.</strong></p>
-        <div className="hero-actions"><a className="button button-lime" href="#laboratorio">Explora el laboratorio <span aria-hidden="true">↗</span></a><a className="text-link" href="#nosotros">Conoce al team <span aria-hidden="true">↗</span></a></div>
+        <div className="hero-actions"><motion.button whileTap={{ scale: 0.97 }} className="button button-lime" onClick={onOpen}>{siteConfig.primaryCta} <span aria-hidden="true">↗</span></motion.button><a className="text-link" href="#laboratorio">Ver el laboratorio <span aria-hidden="true">↗</span></a></div>
         <div className="hero-footnote"><span className="tiny-cross" aria-hidden="true">+</span> Dos primos. Muchas ideas. Un mismo racimo.</div>
       </div>
       <div className="hero-art" aria-label="Ilustración del universo creativo de Team Grapes">
@@ -17,7 +19,7 @@ return (<section className="hero wrap" id="inicio" aria-labelledby="hero-title">
         <div className="art-grid"></div>
         <span className="art-star star-one" aria-hidden="true">✳</span><span className="art-star star-two" aria-hidden="true">+</span>
         <span className="art-label label-code mono">&lt; curiosity /&gt;</span>
-        <div className="grape-sticker"><motion.img animate={reduced ? undefined : { y: [0, -7, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} whileHover={reduced ? undefined : { scale: 1.04 }} src="assets/grape.svg" alt="Uvas pixeladas del logo de Team Grapes" width="220" height="291" /></div>
+        <div className="grape-sticker"><motion.img animate={reduced ? undefined : { y: [0, -7, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} whileHover={reduced ? undefined : { scale: 1.04 }} src="/assets/grape.svg" alt="Uvas pixeladas del logo de Team Grapes" width="220" height="291" /></div>
         <span className="art-label label-play mono">BUILT TO PLAY ↗</span>
         <div className="mini-window"><div className="mini-window-bar"><span></span><span></span><span></span><small>idea.exe</small></div><div className="mini-window-body"><span aria-hidden="true">&gt;_</span><p>¿Y si lo<br /><em>hacemos?</em></p></div></div>
         <span className="art-caption mono"><span className="status-dot"></span> ALWAYS IN EXPERIMENT MODE</span>
@@ -42,6 +44,6 @@ export function About() { return (<Reveal id="nosotros" className="about-section
 
 export function Process() { return (<Reveal className="process wrap" labelledBy="process-title"><div><p className="eyebrow">ASÍ EMPIEZA TODO</p><h2 id="process-title">De «¿y si…?»<br />a <span className="serif">«ya funciona».</span></h2></div><ol><li><span className="mono">01</span><div><h3>Una buena pregunta</h3><p>Entendemos la idea y lo que la hace interesante.</p></div></li><li><span className="mono">02</span><div><h3>Algo que se pueda probar</h3><p>Construimos una primera versión para aprender.</p></div></li><li><span className="mono">03</span><div><h3>Jugar, ajustar, volver a crear</h3><p>Probamos, pulimos y damos el siguiente paso.</p></div></li></ol></Reveal>); }
 
-export function Contact({ onOpen }: { onOpen: () => void }) { return (<Reveal id="colaborar" className="contact-section wrap" labelledBy="contact-title"><div className="contact-top mono"><span>¿TIENES ALGO EN MENTE?</span><span>INSERT YOUR IDEA ↙</span></div><h2 id="contact-title">Las buenas ideas<br />crecen <span className="serif">en racimo.</span><img src="assets/grape.svg" alt="" width="80" height="106" /></h2><div className="contact-bottom"><p>Un juego, una herramienta, un invento extraño.<br />Todo empieza con una idea que vale la pena explorar.</p><button className="button button-dark" id="open-brief" onClick={onOpen}>Prepara tu idea <span aria-hidden="true">↗</span></button></div><p className="contact-note mono">Crea un brief para compartir. Esta herramienta no envía mensajes.</p></Reveal>); }
+export function Contact({ onOpen }: { onOpen: () => void }) { return (<Reveal id="colaborar" className="contact-section wrap" labelledBy="contact-title"><div className="contact-top mono"><span>¿TIENES ALGO EN MENTE?</span><span>INSERT YOUR IDEA ↙</span></div><h2 id="contact-title">Las buenas ideas<br />crecen <span className="serif">en racimo.</span><img src="/assets/grape.svg" alt="" width="80" height="106" /></h2><div className="contact-bottom"><p>Un juego, una herramienta, un invento extraño.<br />Todo empieza con una idea que vale la pena explorar.</p><button className="button button-dark" id="open-brief" onClick={onOpen}>{siteConfig.primaryCta} <span aria-hidden="true">↗</span></button></div><p className="contact-note mono">Prepara tu propuesta y ábrela en tu aplicación de correo para enviarla al team.</p></Reveal>); }
 
-export function Footer() { return (<footer className="footer wrap"><a className="brand" href="#inicio"><img src="assets/grape.svg" alt="" width="25" height="34" /><span>TEAM<span className="lime">GRAPES</span></span></a><span className="mono">© <span id="year">{new Date().getFullYear()}</span> TEAM GRAPES. HECHO CON CURIOSIDAD.</span><a className="text-link" href="#inicio">Volver arriba ↑</a></footer>); }
+export function Footer() { return (<footer className="footer wrap"><a className="brand" href="#inicio"><img src="/assets/grape.svg" alt="" width="25" height="34" /><span>TEAM<span className="lime">GRAPES</span></span></a><span className="mono">© <span id="year">{new Date().getFullYear()}</span> TEAM GRAPES. HECHO CON CURIOSIDAD.</span><a className="text-link" href="#inicio">Volver arriba ↑</a><SiteFooter /></footer>); }
