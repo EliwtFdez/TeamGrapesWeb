@@ -23,7 +23,7 @@ npm start
 
 Abrir `http://127.0.0.1:4317/`. `npm run check` ejecuta ESLint, TypeScript y las pruebas. `npm run build` genera la versión de producción en `dist/`. `npm run preview` sirve esa compilación en `http://127.0.0.1:4320/`, con las mismas respuestas 404 y cabeceras del Worker.
 
-Los archivos publicados se generan en `dist/` y no se editan a mano. El build usa Vite multipágina, prerenderiza React y empaqueta todos los recursos en un Worker ESM compatible con Sites. `.openai/hosting.json` conserva el ID del sitio. El Worker maneja HTTPS, CSP, HSTS inicial de un día, rutas y compresión; no recibe formularios ni envía correos. Las fuentes se sirven localmente desde Fontsource. Las dependencias quedan fijadas en `package-lock.json`.
+Los archivos publicados se generan en `dist/` y no se editan a mano. El build usa Vite multipágina, prerenderiza React y empaqueta todos los recursos en un Worker ESM compatible con Sites. `.openai/hosting.json` conserva el ID del sitio. El Worker maneja HTTPS, CSP, HSTS inicial de un día, rutas; la compresión de transporte corresponde al alojamiento; no recibe formularios ni envía correos. Las fuentes se sirven localmente desde Fontsource. Las dependencias quedan fijadas en `package-lock.json`.
 
 ## Mapa del código
 

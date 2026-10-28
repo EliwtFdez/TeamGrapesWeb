@@ -56,10 +56,9 @@ export function createSiteWorker(assets) {
     const notFound = !exists || key === '/404.html';
     headers.set('Cache-Control', notFound ? 'no-store' : key.endsWith('.html') ? 'no-cache' : /\/assets\/.+-[\w-]{8,}\./.test(key) ? 'public, max-age=31536000, immutable' : 'public, max-age=604800');
     if (notFound) headers.set('X-Robots-Tag', 'noindex, nofollow');
-    const gzip = record.gzip && /(?:^|,)\s*gzip(?:\s*;\s*q=(?!0(?:\.0*)?(?:\s*,|$))[0-9.]+)?\s*(?:,|$)/i.test(request.headers.get('accept-encoding') || '');
-    headers.set('Vary', 'Accept-Encoding');
-    if (gzip) headers.set('Content-Encoding', 'gzip');
-    const data = Uint8Array.from(atob(gzip ? record.gzip : record.body), (char) => char.charCodeAt(0));
+    // Sites owns transport encoding. Returning precompressed bytes through its
+    // response proxy can lose Content-Encoding and expose gzip bytes as HTML.
+    const data = Uint8Array.from(atob(record.body), (char) => char.charCodeAt(0));
     return new Response(request.method === 'HEAD' ? null : data, { status: notFound ? 404 : 200, headers });
   } };
 }

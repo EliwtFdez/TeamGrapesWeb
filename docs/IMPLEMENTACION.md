@@ -21,7 +21,7 @@ Fecha: 28 de octubre de 2026. Rama: `main`. El plan original se conserva en `PLA
 | 4. Contacto, secretos, spam | Un CTA principal en header/hero/contacto; borrador mailto a Gmail; copia y descarga; validación; honeypot y espera breve; sin backend de envíos; `.env*` ignorado; auditoría de patrones de credenciales en historial y árbol | Activar secret scanning / push protection en GitHub con una cuenta administradora; el conector respondió 404 y Git no ofreció credencial no interactiva. MX/SPF/DKIM/DMARC propios sólo cuando se use un dominio propio |
 | 5. GA4 | Consent Mode v2: todos los permisos denegados por defecto, carga sólo con aceptación; publicidad denegada; Google Signals desactivado en etiqueta; eventos limitados; sin nombre, correo, brief ni query en eventos; revocación y cookies accesibles eliminadas | Crear propiedad, ID, retención de 14 meses y ajustes de la propiedad; revisar medición mejorada, marcar eventos clave y verificar DebugView / Realtime antes de activar |
 | 6. Móvil | Lectura y controles más grandes; safe areas; fuentes autoalojadas; sin desbordamiento en 320, 360, 390, 768 y horizontal 844×390; juego sólo inicializa al acercarse; animación con carga diferida | Prueba manual en un teléfono físico. La comprobación realizada fue emulación de viewport en navegador |
-| 7. Publicación y HTTPS | Worker ESM de Sites con redirección 308 HTTP→HTTPS, excepción para loopback, HSTS de 86400 segundos, CSP, nosniff, Referrer-Policy, Permissions-Policy, 404/noindex y compresión gzip; respaldo HTTPS en navegador | Comprobar TLS del futuro dominio; SSL Labs/securityheaders.com y ampliar HSTS sólo después de verificar el dominio. No se activó preload ni includeSubDomains |
+| 7. Publicación y HTTPS | Worker ESM de Sites con redirección 308 HTTP→HTTPS, excepción para loopback, HSTS de 86400 segundos, CSP, nosniff, Referrer-Policy, Permissions-Policy, 404/noindex; transporte administrado por el alojamiento; respaldo HTTPS en navegador | Comprobar TLS del futuro dominio; SSL Labs/securityheaders.com y ampliar HSTS sólo después de verificar el dominio. No se activó preload ni includeSubDomains |
 
 ## Arquitectura
 
@@ -52,12 +52,12 @@ GA4 limita las cookies propias a 180 días y las preferencias se vuelven a solic
 
 - `npm run check`: ESLint sin advertencias, TypeScript y 15 pruebas de privacidad/contacto/seguridad.
 - `npm run build`: cuatro páginas HTML prerenderizadas y Worker ESM válido, con recursos integrados.
-- HTTP local con el mismo handler: 200 para inicio/legales/iconos/robots/sitemap; 308 para normalizar rutas legales; 404 para ruta desconocida y `/404.html`; CSP y cabeceras presentes. Las pruebas también comprueban 308 a HTTPS, 405 para POST, HEAD sin cuerpo y negociación gzip, incluido `gzip;q=0`.
+- HTTP local con el mismo handler: 200 para inicio/legales/iconos/robots/sitemap; 308 para normalizar rutas legales; 404 para ruta desconocida y `/404.html`; CSP y cabeceras presentes. Las pruebas también comprueban 308 a HTTPS, 405 para POST, HEAD sin cuerpo y entrega de HTML decodificado independientemente de Accept-Encoding.
 - Navegador: privacidad y términos; correo de contacto revelado; aceptar/rechazar simétricos; ninguna etiqueta de Google sin ID, incluso tras aceptar; juego iniciar/saltar/pausar; copia y descarga de un brief; sin errores de consola observados tras el prerender.
 - Auditoría local del historial y árbol mediante patrones: sin coincidencias de credenciales conocidas. Es una comprobación acotada, no una garantía ni sustituto del escaneo de GitHub.
 - Lighthouse móvil en Chrome headless contra el preview de producción: **rendimiento 99, accesibilidad 100, buenas prácticas 100, SEO 100**. FCP 0.9 s, LCP 2.3 s, TBT 0 ms, CLS 0.002. Son resultados de laboratorio local, no mediciones de visitantes reales ni de la red del despliegue.
 
-El primer Lighthouse dio rendimiento 55. Para corregirlo se añadieron prerender de React, compresión de recursos, carga diferida de funciones de Motion y activación del canvas cerca de la sección. Los informes se guardan en `.sites-runtime/audit/`; el resumen exportado está en `docs/verification/lighthouse-mobile.json`.
+El primer Lighthouse dio rendimiento 55. Para corregirlo se añadieron prerender de React, compresión HTTP en el servidor de preview, carga diferida de funciones de Motion y activación del canvas cerca de la sección. Los informes se guardan en `.sites-runtime/audit/`; el resumen exportado está en `docs/verification/lighthouse-mobile.json`.
 
 ## Publicación y revisiones posteriores
 
@@ -66,3 +66,7 @@ Conservar acceso privado implica que rastreadores externos ven la pantalla de in
 Antes de activar GA4: crear la propiedad, revisar consentimiento/medición mejorada, establecer retención y controles de Google Signals, añadir sólo el ID público y usar DebugView. Antes de recibir propuestas comerciales: completar domicilio y revisión legal. Antes de migrar al dominio propio: validar registro/DNS/TLS, cambiar `VITE_SITE_URL`, regenerar y revisar metadatos/redirects.
 
 Referencias técnicas consultadas: [Vite multipágina y build](https://vite.dev/config/build-options), [prerender e hidratación con Vite](https://vite.dev/guide/ssr), [hydrateRoot de React](https://react.dev/reference/react-dom/client/hydrateRoot), [Motion con carga diferida](https://motion.dev/docs/react-reduce-bundle-size), [Consent Mode de Google](https://developers.google.com/tag-platform/security/guides/consent), [LFPDPPP vigente](https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf).
+
+### Compatibilidad de transporte de Sites
+
+La prueba de publicación detectó que el proxy de Sites no conservaba correctamente las respuestas precomprimidas del Worker. Se retiró la compresión manual del artefacto: el Worker entrega recursos decodificados y delega el transporte al alojamiento. El servidor de preview aplica gzip en su capa HTTP para simular esa función. El resultado Lighthouse corresponde al preview local, no confirma compresión ni rendimiento de la red de Sites.

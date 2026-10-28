@@ -1,6 +1,5 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { gzipSync, gunzipSync } from 'node:zlib';
 // @ts-expect-error The Worker is plain ESM and tested through the same runtime entry point.
 import { createSiteWorker } from '../worker/security.mjs';
 
@@ -43,13 +42,10 @@ test('legal routes canonicalize and HEAD has no response body', async () => {
   assert.equal(head.status, 200);
   assert.equal(await head.text(), '');
 });
-test('text compression is negotiated and respects gzip;q=0', async () => {
-  const content = '<h1>Contenido comprimido</h1>';
-  const compressed = createSiteWorker({ ...assets, '/index.html': { ...assets['/index.html'], body: Buffer.from(content).toString('base64'), gzip: gzipSync(content).toString('base64') } });
-  const response = await compressed.fetch(new Request('https://example.com/', { headers: { 'Accept-Encoding': 'gzip, deflate, br' } }));
-  assert.equal(response.headers.get('content-encoding'), 'gzip');
-  assert.equal(gunzipSync(Buffer.from(await response.arrayBuffer())).toString(), content);
-  const raw = await compressed.fetch(new Request('https://example.com/', { headers: { 'Accept-Encoding': 'gzip;q=0, br' } }));
-  assert.equal(raw.headers.get('content-encoding'), null);
-  assert.equal(await raw.text(), content);
+test('Worker leaves transport encoding to Sites and always returns decoded HTML', async () => {
+  for (const encoding of ['gzip, deflate, br', 'gzip;q=0, br']) {
+    const response = await worker.fetch(new Request('https://example.com/', { headers: { 'Accept-Encoding': encoding } }));
+    assert.equal(response.headers.get('content-encoding'), null);
+    assert.match(await response.text(), /<h1>Home<\/h1>/);
+  }
 });
