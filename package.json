@@ -1,0 +1,10 @@
+{
+  "name": "team-grapes-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sitio del estudio independiente Team Grapes, de Emmanuel y Eliw.",
+  "scripts": {
+    "start": "node preview.mjs",
+    "check": "node --check dist/app.js && node --check preview.mjs"
+  }
+}
