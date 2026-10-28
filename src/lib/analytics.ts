@@ -61,6 +61,8 @@ declare global {
 const runtime: AnalyticsPort = {
   queue(...args) {
     window.dataLayer ??= [];
+    // Google specifies an arguments object for gtag commands in dataLayer.
+    // eslint-disable-next-line prefer-rest-params
     window.gtag ??= function () { window.dataLayer!.push(arguments); };
     window.gtag(...args);
   },

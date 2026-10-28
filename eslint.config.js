@@ -18,4 +18,6 @@ export default tseslint.config(
     },
   },
   { files: ['*.js', '*.mjs'], languageOptions: { globals: globals.node } },
+  { files: ['scripts/**/*.mjs', 'worker/**/*.mjs', 'tests/**/*.ts'], languageOptions: { globals: globals.node } },
+  { files: ['public/**/*.js'], languageOptions: { globals: globals.browser } },
 );

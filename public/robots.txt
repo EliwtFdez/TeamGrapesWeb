@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://team-grapes-studio.glassy-lamp-0223.chatgpt.site/sitemap.xml
