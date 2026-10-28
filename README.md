@@ -1,6 +1,6 @@
 # Team Grapes — sitio web
 
-Web independiente en español para el estudio de Emmanuel y Eliw. HTML, CSS y JavaScript sin dependencias de ejecución. Raíz del proyecto: `C:/Repositorios/Prototypes/TeamGrapesWeb/`.
+Web en español para el estudio de Emmanuel y Eliw. React + TypeScript + Vite, con animaciones de Motion para React. Raíz del proyecto: `C:/Repositorios/Prototypes/TeamGrapesWeb/`.
 
 ## Contenido
 
@@ -12,23 +12,40 @@ Web independiente en español para el estudio de Emmanuel y Eliw. HTML, CSS y Ja
 
 ## Vista local
 
-Desde esta carpeta: `npm start` (o `node preview.mjs`). Abrir la URL impresa. `npm run check` valida la sintaxis JavaScript sin instalar dependencias.
+Desde esta carpeta:
 
-Los archivos publicados están en `dist/`; `.openai/hosting.json` identifica el sitio y su directorio estático. Google Fonts es opcional y tiene fuentes locales de respaldo.
+```bash
+npm ci
+npm start
+```
+
+Abrir `http://127.0.0.1:4317/`. `npm run check` ejecuta ESLint y TypeScript; `npm run build` genera la versión de producción en `dist/`. `npm run preview` sirve esa compilación.
+
+Los archivos publicados se generan en `dist/` y no se editan a mano; `.openai/hosting.json` identifica el sitio y su directorio estático. Google Fonts es opcional y tiene fuentes locales de respaldo. Las dependencias quedan fijadas en `package-lock.json`.
 
 ## Mapa del código
 
 ```text
-dist/index.html           Estructura, contenidos y formulario
-dist/style.css            Identidad visual y diseño responsive
-dist/app.js               Menú, brief y juego Grape Run
-dist/assets/grape.svg     Símbolo de uvas derivado del logo original
-dist/assets/team-grapes.svg Logo completo proporcionado
-preview.mjs              Servidor local
-package.json             Comandos sin dependencias
+index.html               Metadatos y entrada de Vite
+src/main.tsx             React y política de movimiento reducido
+src/App.tsx              Composición de la página
+src/components/          Secciones, menú, formulario, animaciones y juego
+src/game/GrapeRunEngine.ts Motor del juego y limpieza de eventos
+src/styles/original.css  Hoja de estilos original conservada
+public/assets/           Logo original y símbolo de uvas
+vite.config.ts           Servidor y compilación de producción
+package.json             Comandos y dependencias
 IDENTIDAD.md             Propuesta de marca y primeros pasos
 .openai/hosting.json      Configuración de publicación de Sites
 ```
+
+## Versiones de diseño
+
+- `main`: misma composición, contenido y estilos de la primera entrega, migrados a componentes React. Motion añade entrada discreta de secciones, flotación del símbolo y respuesta al pulsar controles, respetando `prefers-reduced-motion`.
+- `codex/design-md`: variante React basada en `DESIGN.md`. Tiene cambios de diseño propios y no se fusiona automáticamente a `main`.
+- `codex/pre-react`: etiqueta que conserva la versión estática original.
+
+El documento proporcionado `DESIGN.md` se conserva como referencia; sus reglas visuales se aplican únicamente en la rama alternativa.
 
 ## Personalización pendiente
 
