@@ -17,7 +17,7 @@ export function defineSiteConfig(env: Record<string, string | undefined> = {}) {
     title: 'Team Grapes — Ideas que se juegan.',
     description: 'Somos Emmanuel y Eliw. Creamos videojuegos, software y prototipos de mecatrónica. Si nos da curiosidad, lo construimos.',
     locale: 'es_MX',
-    contact: { local: 'asesor', domain: 'teamgrapes.com' },
+    contact: { local: 'shadowkadizz', domain: 'gmail.com' },
     legal: {
       responsible: 'Eliwt Rosales Fernandez',
       location: 'Veracruz, México',

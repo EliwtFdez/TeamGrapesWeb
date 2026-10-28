@@ -4,12 +4,13 @@ import { analytics } from '../lib/analytics';
 import { readConsent, saveConsent, type ConsentChoice } from '../lib/consent';
 
 export function ConsentBanner() {
-  const [visible, setVisible] = useState(() => Boolean(siteConfig.analytics.measurementId) && readConsent() === null);
+  const [visible, setVisible] = useState(false);
   const firstAction = useRef<HTMLButtonElement>(null);
   useEffect(() => {
+    const initial = requestAnimationFrame(() => { if (siteConfig.analytics.measurementId && readConsent() === null) setVisible(true); });
     const open = () => { setVisible(true); requestAnimationFrame(() => firstAction.current?.focus()); };
     window.addEventListener('team-grapes:privacy-preferences', open);
-    return () => window.removeEventListener('team-grapes:privacy-preferences', open);
+    return () => { cancelAnimationFrame(initial); window.removeEventListener('team-grapes:privacy-preferences', open); };
   }, []);
   if (!visible) return null;
   function choose(choice: ConsentChoice) {

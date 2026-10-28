@@ -1,6 +1,7 @@
 import { readFile, readdir, mkdir, writeFile, cp } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { gzipSync } from 'node:zlib';
 const root = fileURLToPath(new URL('../', import.meta.url));
 const client = path.join(root, '.sites-runtime/client');
 const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'application/javascript; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png', '.ico': 'image/x-icon', '.xml': 'application/xml; charset=utf-8', '.txt': 'text/plain; charset=utf-8', '.webmanifest': 'application/manifest+json', '.woff2': 'font/woff2' };
@@ -9,7 +10,10 @@ async function visit(folder) {
   for (const entry of await readdir(folder, { withFileTypes: true })) {
     const filename = path.join(folder, entry.name);
     if (entry.isDirectory()) await visit(filename);
-    else if (entry.isFile()) assets['/' + path.relative(client, filename).split(path.sep).join('/')] = { type: types[path.extname(filename)] || 'application/octet-stream', body: (await readFile(filename)).toString('base64') };
+    else if (entry.isFile()) {
+      const body = await readFile(filename);
+      assets['/' + path.relative(client, filename).split(path.sep).join('/')] = { type: types[path.extname(filename)] || 'application/octet-stream', body: body.toString('base64'), ...(/\.(?:html|js|css|svg|xml|txt|webmanifest)$/.test(filename) ? { gzip: gzipSync(body, { level: 9 }).toString('base64') } : {}) };
+    }
     else throw new Error('El build no admite symlinks.');
   }
 }

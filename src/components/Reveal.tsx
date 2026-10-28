@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { motion, useReducedMotion } from 'motion/react';
+import { m as motion, useReducedMotion } from 'motion/react';
 
 export function Reveal({ children, className, id, labelledBy }: {
   children: ReactNode;
@@ -13,8 +13,8 @@ export function Reveal({ children, className, id, labelledBy }: {
       id={id}
       className={className}
       aria-labelledby={labelledBy}
-      initial={reduced ? false : { opacity: 0, y: 18 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={false}
+      whileInView={reduced ? undefined : { opacity: [0.92, 1], y: [8, 0] }}
       viewport={{ once: true, amount: 0.08 }}
       transition={{ duration: reduced ? 0 : 0.5, ease: 'easeOut' }}
     >{children}</motion.section>

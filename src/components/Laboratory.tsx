@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
+import { AnimatePresence, m as motion, useReducedMotion } from 'motion/react';
 import { GrapeRunEngine, initialView, pad } from '../game/GrapeRunEngine';
 import { Reveal } from './Reveal';
 import { analytics } from '../lib/analytics';
@@ -23,12 +23,17 @@ function GrapeRun() {
   const reduced = useReducedMotion();
   useEffect(() => {
     if (!canvas.current) return;
-    const game = new GrapeRunEngine(canvas.current, (next) => {
-      if (next.phase === 'over') analytics.event('game_over', { score: next.score });
-      setView(next);
-    });
-    engine.current = game;
-    return () => { game.destroy(); engine.current = null; };
+    const element = canvas.current;
+    const observer = new IntersectionObserver((entries) => {
+      if (!entries[0].isIntersecting || engine.current) return;
+      engine.current = new GrapeRunEngine(element, (next) => {
+        if (next.phase === 'over') analytics.event('game_over', { score: next.score });
+        setView(next);
+      });
+      observer.disconnect();
+    }, { rootMargin: '200px' });
+    observer.observe(element);
+    return () => { observer.disconnect(); engine.current?.destroy(); engine.current = null; };
   }, []);
   const active = view.phase === 'running' || view.phase === 'paused';
   return (

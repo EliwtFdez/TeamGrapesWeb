@@ -1,5 +1,5 @@
 import { forwardRef, useRef, useState, useImperativeHandle } from 'react';
-import { motion } from 'motion/react';
+import { m as motion } from 'motion/react';
 import { briefText, buildMailto, canOpenContact } from '../lib/contact';
 import { analytics } from '../lib/analytics';
 

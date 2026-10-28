@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from 'motion/react';
+import { m as motion, useReducedMotion } from 'motion/react';
 import { Reveal } from './Reveal';
 import { siteConfig } from '../site.config';
 import { SiteFooter } from './SiteFooter';
@@ -19,7 +19,7 @@ return (<section className="hero wrap" id="inicio" aria-labelledby="hero-title">
         <div className="art-grid"></div>
         <span className="art-star star-one" aria-hidden="true">✳</span><span className="art-star star-two" aria-hidden="true">+</span>
         <span className="art-label label-code mono">&lt; curiosity /&gt;</span>
-        <div className="grape-sticker"><motion.img animate={reduced ? undefined : { y: [0, -7, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} whileHover={reduced ? undefined : { scale: 1.04 }} src="/assets/grape.svg" alt="Uvas pixeladas del logo de Team Grapes" width="220" height="291" /></div>
+        <div className="grape-sticker"><motion.img whileHover={reduced ? undefined : { scale: 1.04 }} fetchPriority="high" loading="eager" src="/assets/grape.svg" alt="Uvas pixeladas del logo de Team Grapes" width="220" height="291" /></div>
         <span className="art-label label-play mono">BUILT TO PLAY ↗</span>
         <div className="mini-window"><div className="mini-window-bar"><span></span><span></span><span></span><small>idea.exe</small></div><div className="mini-window-body"><span aria-hidden="true">&gt;_</span><p>¿Y si lo<br /><em>hacemos?</em></p></div></div>
         <span className="art-caption mono"><span className="status-dot"></span> ALWAYS IN EXPERIMENT MODE</span>
