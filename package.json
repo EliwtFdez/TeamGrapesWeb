@@ -7,18 +7,23 @@
   "scripts": {
     "start": "vite --host 127.0.0.1 --port 4317 --strictPort",
     "dev": "vite --host 127.0.0.1 --port 4317 --strictPort",
-    "build": "tsc --noEmit && vite build",
-    "preview": "vite preview --host 127.0.0.1 --port 4317 --strictPort",
+    "build": "tsc --noEmit && node scripts/generate-assets.mjs && vite build && node scripts/build-worker.mjs",
+    "preview": "node scripts/preview.mjs",
     "lint": "eslint . --max-warnings 0",
     "typecheck": "tsc --noEmit",
-    "check": "npm run lint && npm run typecheck"
+    "check": "npm run lint && npm run typecheck && npm test",
+    "test": "node --experimental-strip-types --test tests/*.test.ts",
+    "audit:secrets": "node scripts/audit-secrets.mjs"
   },
   "dependencies": {
+    "@fontsource-variable/dm-sans": "5.3.0",
+    "@fontsource-variable/space-grotesk": "5.3.0",
     "react": "19.3.1",
     "react-dom": "19.3.1",
     "motion": "14.7.1"
   },
   "devDependencies": {
+    "sharp": "0.35.5",
     "@eslint/js": "^9.39.5",
     "@types/node": "^26.6.5",
     "@types/react": "^19.3.0",

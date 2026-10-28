@@ -4,3 +4,6 @@ dist/
 .sites-runtime/
 .sites-checkout/
 *.tar.gz
+.env*
+!.env.example
+coverage/
